@@ -1,0 +1,68 @@
+.heading_72,
+.heading_48,
+.heading_42,
+.heading_34,
+.heading_24,
+.heading_18,
+.text_16,
+.text_14,
+.text_12 {
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #000;
+}
+
+.heading_72 {
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.heading_48 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+.heading_42 {
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+.heading_34 {
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.08;
+  letter-spacing: 0.25px;
+}
+
+.heading_18 {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.text_16 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.68;
+  letter-spacing: 0.5px;
+}
+
+.text_14 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.08;
+}
+
+.text_12 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+}/*# sourceMappingURL=commom.css.map */

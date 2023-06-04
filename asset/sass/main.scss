@@ -1,0 +1,24 @@
+h1{
+    color: aqua;
+}
+
+//
+@import "./Helpers/variables";
+@import "./Helpers/mixin";
+
+//Base
+@import "./Base/reset";
+@import "./Base/customize";
+@import "./Base/responsive";
+@import "./Base/common";
+
+//Components
+@import "./Components/buttons";
+
+//layouts
+@import "./Layouts/top-header";
+@import "./Layouts/header";
+@import "./Layouts/carousel";
+@import "./Layouts/services";
+@import "./Layouts/products";
+@import "./Layouts/footer";
