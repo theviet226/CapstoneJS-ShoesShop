@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <header class="sticky-header">
+    <header>
         <div class="header-bottom">
             <div class="container">
                 <div class="row align-items-center">
@@ -54,14 +54,14 @@
                             <ul class="main-menu justify-content-center">
                                 <li class="menu-list">
                                     <div class="menu-header">
-                                        <a href="" class="nav-link">
+                                        <a href="/index.html" class="nav-link">
                                             Home
                                         </a>
                                     </div>
                                 </li>
                                 <li class="menu-list">
                                     <div class="menu-header dropdown">
-                                        <a href="/view/product.html" class="nav-link">
+                                        <a href="" class="nav-link">
                                             Danh mục
                                         </a>
                                         <span>
@@ -96,7 +96,7 @@
                             <a class="header-action-item" id="search-icon" href="">
                                 <i class="icon fa-solid fa-magnifying-glass"></i>
                             </a>
-                            <a class="header-action-item" href="./view/cart.html">
+                            <a class="header-action-item" href="">
                                 <button class="cart-btn bg-transparent" onclick="toggleSidebar()"><i
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
@@ -129,142 +129,55 @@
             </div>
         </div>
     </header>
-    <section class="carousel">
-        <div id="container">
-            <div id="slider">
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Nike Adapt BB</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/1.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Adidas Prophere Black White</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/2.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Adidas Ultraboost 4</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/3.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Nike Air Max 97 Blue</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/4.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Nike SP Dunk</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/5.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <button class="prev functionBtn"><i class="fas fa-angle-left"></i></button>
-            <button class="next functionBtn"><i class="fas fa-angle-right"></i></button>
-        </div>
-    </section>
-    <section class="services mt-80 overflow-hidden">
+    <section class="cart-page mt-100">
         <div class="container">
-            <div class="row justify-content-center services-row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="services-item bg-services-1 rounded">
-                        <div class="services-icon">
-                            <img class="icon-services" src="./asset/img/icon/1.png" alt="icon-1">
-                        </div>
-                        <div class="services-content">
-                            <h2 class="heading_18">Free Shipping &amp; Return</h2>
-                            <p class="text_16  services-subheading-2">On all order over
-                                $99.00</p>
-                        </div>
+            <div class="cart-page-wrapper">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartList">
+        
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="services-item bg-services-2 rounded">
-                        <div class="services-icon">
-                            <img class="icon-services" src="./asset/img/icon/2.png" alt="icon-2">
-                        </div>
-                        <div class="services-content">
-                            <h2 class="heading_18 services-heading">Customer Support 24/7</h2>
-                            <p class="text_16 services-subheading services-subheading-2">Instant access to
-                                support</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="services-item bg-services-3 rounded">
-                        <div class="services-icon">
-                            <img class="icon-services" src="./asset/img/icon/3.png" alt="icon-3">
-                        </div>
-                        <div class="services-content">
-                            <h2 class="heading_18 services-heading">100% Secure Payment</h2>
-                            <p class="text_16 services-subheading services-subheading-2">We ensure secure pay!</p>
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div class="cart-total">
+                            <h3 class="cart-total-title d-none d-lg-block mb-0">Cart Totals</h3>
+                            <div class="cart-total-box mt-4">
+                                <div class="subtotal-item subtotal-box">
+                                    <h4 class="subtotal-title">Subtotals:</h4>
+                                    <p id="subtotal-value" class="subtotal-value"></p>
+                                </div>
+                                <div class="subtotal-item shipping-box">
+                                    <h4 class="subtotal-title">Shipping:</h4>
+                                    <p class="subtotal-value" id="shipping-value"></p>
+                                </div>
+                                <hr>
+                                <div class="subtotal-item discount-box">
+                                    <h4 class="subtotal-title">Total:</h4>
+                                    <p class="subtotal-value" id="total-value"></p>
+                                </div>
+                                <div class="d-flex justify-content-center mt-4"><a href="/checkout"
+                                        class="position-relative  btn-1 ">
+                                        Procced to checkout
+                                    </a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </section>
-    <section class="products">
-        <div class="container">
-            <div class="d-flex justify-content-center mt-5">
-                <h1 class="section-heading">
-                    Product Feature</h1>
-            </div>
-            <div class="row" id="shoesList"></div>
-        </div>
-
+        
     </section>
 
     <footer class="mt-100 overflow-hidden">
@@ -412,12 +325,8 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.4.0/dist/axios.min.js"></script>
-    <script src="./controller/cartsidebar.js"></script>
-    <script src="./controller/slider.js"></script>
-    <script src="./model/Shoes.js"></script>
-    <script src="./model/CartItem.js"></script>
+    <script src="/controller/main.js"></script>
     <!-- <script src="/controller/card.js"></script> -->
-    <script src="./controller/main.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -434,105 +343,3 @@
 </body>
 
 </html>
-
-
-
-
-<!-- <div class="product-wrap col l-4 m-12 c-12">
-    <a href="">
-        <div class="product-item">
-            <div class="swiper swiper-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide product-item-img">
-                        <img src="${product.image}" />
-                    </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-            <div
-                class="product-item-description"><span>${product.name}</span><span>${product.price}</span>
-            </div>
-            <div
-                class="product-item-options">
-                <div
-                    class="product-item-options-sizes">
-                    <div class="swiper swiper-size">
-                        <div class="swiper-wrapper">
-                            @php
-                                $listsizes = explode('@@', $product->sizes);
-                            @endphp
-                            <div class="swiper-slide product-item-options-sizes-item">
-                                @foreach($listsizes as $key => $size)
-                                    @php
-                                        if($key>3) break;
-                                    @endphp
-                                    <span>{{$size}}</span>
-                                @endforeach
-                            </div>
-                            @if(count($listsizes)>4)
-                                <div class="swiper-slide product-item-options-sizes-item">
-                                    @for($i=4; $i< count($listsizes); $i++)
-                                        <span>{{$listsizes[$i]}}</span>
-                                    @endfor
-                                </div>
-                            @endif
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                <div class="product-item-options-button row">
-                    <div class="col-lg-6">
-                        <button><i class="fa-solid fa-cart-plus"></i></button>
-                    </div>
-                    <div class="col-lg-6">
-                        <button>Xem sản phẩm</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div> -->
-
-<div class="product-wrap col-lg-4 m-12 c-12">
-    <a href="">
-        <div class="product-item">
-            <div class="swiper swiper-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide product-item-img">
-                        <img src="${product.image}" class="card-img" />
-                    </div>
-                </div>
-            </div>
-            <div class="product-item-description">
-                <h5 class="card-title" >${product.name}</h5>
-                <h6 class="text-muted">${product.price}$</h6>
-            </div>
-            <div
-                class="product-item-options">  
-                <div class="product-item-options-button row">
-                <div class="col-lg-8 col1">
-                <button>Xem sản phẩm</button>
-            </div>
-            <div class="col-lg-4 col1">
-            <button onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i></button>
-            </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-<!-- <div class="col-lg-4 col-md-6">
-    <div class="content-overlay"></div>
-    <img src="${product.image}" class="card-img" alt="Phone Image" />
-    <div class="card-body text-center">
-      <div class="text-center">
-        <h5 class="card-title pt-3">${product.name}</h5>
-        <span class="text-muted mb-2">$${product.price}</span>
-      </div>
-      <button class="btn btn-success" onclick="addToCart()">Mua ngay </button>
-    </div>
-  </div> -->
-

@@ -1,0 +1,46 @@
+.subtotal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.cart-total-box {
+    background: rgb(246, 246, 249);
+    border-radius: 4px;
+    padding: 32px;
+}
+.shipping_text, .subtotal-value, .subtotal-title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.69;
+    letter-spacing: 0.5px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0px;
+}
+.cart-left-middle-product-quantity {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-left-middle-product-quantity-content {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .cart-left-middle-product-quantity-content-number {
+    width: 50px;
+    text-align: center;
+  }
+  
+  .btnUpdate {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #ccc;
+  }
+  
+  .btnUpdate i {
+    display: inline-block;
+    vertical-align: middle;
+  }

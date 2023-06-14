@@ -13,76 +13,106 @@
   line-height: 1.2;
   color: #000;
 }
+
 .heading_72 {
-    font-weight: 600;
-    font-size: 72px;
-    line-height: 1.2;
-    letter-spacing: 0;
-  }
-  
-  .heading_48 {
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 1.12;
-    letter-spacing: 0.01em;
-  }
-  
-  .heading_42 {
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 1.12;
-    letter-spacing: 0.01em;
-  }
-  
-  .heading_34 {
-    font-weight: 600;
-    font-size: 34px;
-    line-height: 1.08;
-    letter-spacing: 0.25px;
-  }
-  
-  .heading_18 {
-    font-size: 18px;
-    line-height: 1.5;
-  }
-  
-  .text_16 {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.68;
-    letter-spacing: 0.5px;
-  }
-  
-  .text_14 {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.08;
-  }
-  
-  .text_12 {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.4px;
-  }
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.heading_48 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+.heading_42 {
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+.heading_34 {
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.08;
+  letter-spacing: 0.25px;
+}
+
+.heading_18 {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.text_16 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.68;
+  letter-spacing: 0.5px;
+}
+
+.text_14 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.08;
+}
+
+.text_12 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+}
 
 
+// background & color
+.bg-1 {
+  background-color: #00234D;
+}
 
-  .bg-services-1 {
-    background-color: #FCEDDA;
-  }
-  
-  .bg-services-2 {
-    background-color: #F2FBCB;
-  }
-  
-  .bg-services-3 {
-    background-color: #F7D8F9;
-  }
+.bg-2 {
+  background-color: #000;
+}
 
-.section-heading{
+.bg-3 {
+  background-color: #F76B6A;
+}
+
+.bg-4 {
+  background-color: #071C1F;
+}
+
+.bg-5 {
+  background-color: #FBF3F0;
+}
+
+.bg-services-1 {
+  background-color: #FCEDDA;
+}
+
+.bg-services-2 {
+  background-color: #F2FBCB;
+}
+
+.bg-services-3 {
+  background-color: #F7D8F9;
+}
+
+
+.section-heading {
   font-size: 48px;
   font-weight: 600;
   color: #000;
 
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+a:hover{
+  text-decoration: none !important;
 }

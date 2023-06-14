@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../demoLoop"
+		},
+		{
+			"path": "../bc5008-es6"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ShoeShop"
+	}
+}

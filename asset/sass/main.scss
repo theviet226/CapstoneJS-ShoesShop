@@ -13,6 +13,7 @@ h1{
 @import "./Base/common";
 
 //Components
+
 @import "./Components/buttons";
 
 //layouts
@@ -22,3 +23,7 @@ h1{
 @import "./Layouts/services";
 @import "./Layouts/products";
 @import "./Layouts/footer";
+
+//Pages
+@import "./Pages/cart.scss";
+@import "./Pages/product";
