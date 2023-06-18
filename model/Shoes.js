@@ -1,4 +1,4 @@
-function Products(id,tenSP, giaSP, alias,size, shortDes,quantity,desc,related,deleted,danhmuc,feature,img) {
+ function Products(id,tenSP, giaSP, alias,size, shortDes,quantity,desc,related,deleted,danhmuc,feature,img) {
     this.id = id;
     this.name = tenSP;
     this.alias = alias;

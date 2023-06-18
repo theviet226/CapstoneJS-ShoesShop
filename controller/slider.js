@@ -3,9 +3,6 @@ const list = document.querySelectorAll(".item");
 let changeList = Object.keys(list).map(function (key) {
     return list[key];
 })
-console.log(changeList);
-console.log(typeof changeList);
-
 
 document.querySelector(".next").addEventListener("click", () => {
     let list = document.querySelectorAll(".item");

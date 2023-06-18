@@ -1,3 +1,27 @@
+var cart = [];
+var cartItemId = 1;
+
+export function addToCart(event) {
+  event.preventDefault();
+  var productName = event.target.closest('.product-item').querySelector('.card-title').innerText;
+  var productPrice = parseFloat(event.target.closest('.product-item').querySelector('.text-muted').innerText.replace('$', ''));
+  var productImage = event.target.closest('.product-item').querySelector('.product-item-img img').src;
+
+  var existingCartItem = cart.find(function (item) {
+    return item.name === productName;
+  });
+
+  if (existingCartItem) {
+    existingCartItem.quantityOrder += 1;
+  } else {
+    var cartItem = new CartItem(productName, productPrice, 1, productImage);
+    cartItem.id = cartItemId;
+    cartItemId++;
+    cart.push(cartItem);
+  }
+
+  updateCart();
+}
 function btnAdd(id) {
   let cartItem = findItemById(cart, id);
   if (cartItem) cartItem.quantityOrder++;

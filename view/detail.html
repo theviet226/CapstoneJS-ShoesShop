@@ -54,7 +54,7 @@
                             <ul class="main-menu justify-content-center">
                                 <li class="menu-list">
                                     <div class="menu-header">
-                                        <a href="" class="nav-link">
+                                        <a href="/index.html" class="nav-link">
                                             Home
                                         </a>
                                     </div>
@@ -96,7 +96,7 @@
                             <a class="header-action-item" id="search-icon" href="">
                                 <i class="icon fa-solid fa-magnifying-glass"></i>
                             </a>
-                            <a class="header-action-item" href="./view/cart.html">
+                            <a class="header-action-item" href="/view/cart.html">
                                 <button class="cart-btn bg-transparent" onclick="toggleSidebar()"><i
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
@@ -129,144 +129,88 @@
             </div>
         </div>
     </header>
-    <section class="carousel">
-        <div id="container">
-            <div id="slider">
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Nike Adapt BB</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-
-                    <div class="bottomRight content">
-                        <a href="http://127.0.0.1:5500/view/detail.html?id=9"><i class="fas fa-shopping-cart cartBtn"></i></a>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/1.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Adidas Prophere Black White</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/2.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Adidas Ultraboost 4</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/3.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Nike Air Max 97 Blue</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/4.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="left content">
-                        <h1 class="nameProduct">Nike SP Dunk</h1>
-                        <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
-                    </div>
-
-
-                    <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
-                    </div>
-
-                    <div class="product">
-                        <img class="imgProduct" src="./asset/img/5.png" alt="">
-                    </div>
+    <div class="detail-product">
+        <div class="detail-product-left">
+            <div class="detail-product-left-top grid wide">
+                <div class="detail-product-left-top-item text-center ">
+                    <img class="img-product" src="" alt="">
                 </div>
             </div>
-
-            <button class="prev functionBtn"><i class="fas fa-angle-left"></i></button>
-            <button class="next functionBtn"><i class="fas fa-angle-right"></i></button>
         </div>
-    </section>
-    <section class="services mt-80 overflow-hidden">
-        <div class="container">
-            <div class="row justify-content-center services-row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="services-item bg-services-1 rounded">
-                        <div class="services-icon">
-                            <img class="icon-services" src="./asset/img/icon/1.png" alt="icon-1">
+        <div class="detail-product-right">
+            <div class="detail-product-right-wrap">
+                <div class="detail-product-right-top">
+                    <form action="" >
+                        <div class="detail-product-right-top-description">
+                            <div class="detail-product-right-top-description-new"><span>Mới</span></div>
+                            <h2 class="title">
+
+                            </h2>
+                            <br>
+                            <span class="price"></span>
+                            <input type="hidden" name="id" value="">
+                            <div class="detail-product-right-top-description-size">
+                                <div class="detail-product-right-top-description-size-title">
+                                    <span>Kích thước: </span>
+                                </div>
+                                <div class="size-buttons mb-3">
+                                    <div class="size-buttons">
+                                        <button class="size-button" onclick="selectSize(36)"><span>36</span></button>
+                                        <button class="size-button" onclick="selectSize(37)"><span>37</span></button>
+                                        <button class="size-button" onclick="selectSize(38)"><span>38</span></button>
+                                        <button class="size-button" onclick="selectSize(39)"><span>39</span></button>
+                                        <button class="size-button" onclick="selectSize(40)"><span>40</span></button>
+                                        <button class="size-button" onclick="selectSize(41)"><span>41</span></button>
+                                        <button class="size-button" onclick="selectSize(42)"><span>42</span></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="detail-product-right-top-btn">
+                                <button >Thêm vào giỏ hàng</button>
+                                <button>Mua Hàng</button>
+                            </div>
                         </div>
-                        <div class="services-content">
-                            <h2 class="heading_18">Free Shipping &amp; Return</h2>
-                            <p class="text_16  services-subheading-2">On all order over
-                                $99.00</p>
+                    </form>
+                    <div class="detail-product-right-bottom">
+                        <div class="detail-product-right-bottom-title">
+                            <h3 class="detail-product-right-bottom-title-description">Mô tả sản phẩm</h3>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="services-item bg-services-2 rounded">
-                        <div class="services-icon">
-                            <img class="icon-services" src="./asset/img/icon/2.png" alt="icon-2">
+                        <div class="detail-product-right-bottom-description ">
                         </div>
-                        <div class="services-content">
-                            <h2 class="heading_18 services-heading">Customer Support 24/7</h2>
-                            <p class="text_16 services-subheading services-subheading-2">Instant access to
-                                support</p>
+                        <hr>
+                        <div class="detail-product-right-bottom-promotion">
+                            <div class="detail-product-right-bottom-promotion-title">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                <span>Khuyến mãi</span>
+                            </div>
+                            <div class="detail-product-right-bottom-promotion-icon">
+                                <i class="fa-solid fa-chevron-down detail-product-right-bottom-icon-down"></i>
+                                <i class="fa-solid fa-chevron-up detail-product-right-bottom-icon-up"></i>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="services-item bg-services-3 rounded">
-                        <div class="services-icon">
-                            <img class="icon-services" src="./asset/img/icon/3.png" alt="icon-3">
+                        <div class="detail-product-right-bottom-promotion-information"></div>
+                        <div class="detail-product-right-bottom-delivery">
+                            <div class="detail-product-right-bottom-delivery-title">
+                                <i class="fa-solid fa-truck"></i>
+                                <span>Vận chuyển, trả hàng</span>
+                            </div>
+                            <div class="detail-product-right-bottom-delivery-icon">
+                                <i class="fa-solid fa-chevron-down detail-product-right-bottom-icon-down"></i>
+                                <i class="fa-solid fa-chevron-up detail-product-right-bottom-icon-up"></i>
+                            </div>
                         </div>
-                        <div class="services-content">
-                            <h2 class="heading_18 services-heading">100% Secure Payment</h2>
-                            <p class="text_16 services-subheading services-subheading-2">We ensure secure pay!</p>
+                        <div class="detail-product-right-bottom-delivery-information">
+                            <li><span>Giao hàng tiêu chuẩn</span>: Dự kiến giao hàng từ 2 - 7 ngày làm việc tùy thuộc
+                                vào khu vực của khách hàng</li>
+                            <li>Tìm hiểu thêm về <span>Đổi trả hàng</span> của chúng tôi</li>
+                            <li> Tất cả các đơn đặt hàng hiện đang được vận chuyển từ Việt Nam</li>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </section>
-    <section class="products">
-        <div class="container">
-            <div class="d-flex justify-content-center mt-5">
-                <h1 class="section-heading">
-                    Product Feature</h1>
-            </div>
-            <div class="row" id="shoesList"></div>
-        </div>
-
-    </section>
-
+    </div>
     <footer class="mt-100 overflow-hidden">
         <div class="footer-top bg-4">
             <div class="container">
@@ -412,12 +356,14 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.4.0/dist/axios.min.js"></script>
-    <script src="./controller/cartsidebar.js"></script>
-    <script src="./controller/slider.js"></script>
-    <script src="./model/Shoes.js"></script>
-    <script src="./model/CartItem.js"></script>
-    <!-- <script src="/controller/card.js"></script> -->
-    <script src="./controller/main.js"></script>
+    <script src="/controller/cartsidebar.js"></script>
+    <script src="/controller/slider.js"></script>
+    <!-- <script src="/model/Shoes.js"></script>
+    <script src="/model/CartItem.js"></script>
+    <script src="/controller/card.js"></script>
+    <script src="/controller/main.js"></script> -->
+    <script src="/model/Shoes.js"></script>
+    <script src="/controller/detail.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -430,109 +376,18 @@
             });
         });
     </script>
+    <script>
+        function selectSize(size) {
+            sizeButtons.forEach(button => {
+                if (button.textContent === size.toString()) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+    </script>
 
 </body>
 
 </html>
-
-
-
-
-<!-- <div class="product-wrap col l-4 m-12 c-12">
-    <a href="">
-        <div class="product-item">
-            <div class="swiper swiper-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide product-item-img">
-                        <img src="${product.image}" />
-                    </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-            <div
-                class="product-item-description"><span>${product.name}</span><span>${product.price}</span>
-            </div>
-            <div
-                class="product-item-options">
-                <div
-                    class="product-item-options-sizes">
-                    <div class="swiper swiper-size">
-                        <div class="swiper-wrapper">
-                            @php
-                                $listsizes = explode('@@', $product->sizes);
-                            @endphp
-                            <div class="swiper-slide product-item-options-sizes-item">
-                                @foreach($listsizes as $key => $size)
-                                    @php
-                                        if($key>3) break;
-                                    @endphp
-                                    <span>{{$size}}</span>
-                                @endforeach
-                            </div>
-                            @if(count($listsizes)>4)
-                                <div class="swiper-slide product-item-options-sizes-item">
-                                    @for($i=4; $i< count($listsizes); $i++)
-                                        <span>{{$listsizes[$i]}}</span>
-                                    @endfor
-                                </div>
-                            @endif
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                <div class="product-item-options-button row">
-                    <div class="col-lg-6">
-                        <button><i class="fa-solid fa-cart-plus"></i></button>
-                    </div>
-                    <div class="col-lg-6">
-                        <button>Xem sản phẩm</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div> -->
-
-<div class="product-wrap col-lg-4 m-12 c-12">
-    <a href="">
-        <div class="product-item">
-            <div class="swiper swiper-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide product-item-img">
-                        <img src="${product.image}" class="card-img" />
-                    </div>
-                </div>
-            </div>
-            <div class="product-item-description">
-                <h5 class="card-title" >${product.name}</h5>
-                <h6 class="text-muted">${product.price}$</h6>
-            </div>
-            <div
-                class="product-item-options">  
-                <div class="product-item-options-button row">
-                <div class="col-lg-8 col1">
-                <button>Xem sản phẩm</button>
-            </div>
-            <div class="col-lg-4 col1">
-            <button onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i></button>
-            </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-<!-- <div class="col-lg-4 col-md-6">
-    <div class="content-overlay"></div>
-    <img src="${product.image}" class="card-img" alt="Phone Image" />
-    <div class="card-body text-center">
-      <div class="text-center">
-        <h5 class="card-title pt-3">${product.name}</h5>
-        <span class="text-muted mb-2">$${product.price}</span>
-      </div>
-      <button class="btn btn-success" onclick="addToCart()">Mua ngay </button>
-    </div>
-  </div> -->
-

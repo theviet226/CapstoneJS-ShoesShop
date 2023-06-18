@@ -1,4 +1,5 @@
-var productList = [];
+var productList = []; // Biến global lưu danh sách sản phẩm
+
 function layDuLieu() {
   axios({
     method: 'get',
@@ -6,7 +7,9 @@ function layDuLieu() {
   })
     .then(function (result) {
       productList = result.data.content;
+      console.log(productList)
       hienThiSanPham(productList);
+      
     })
     .catch(function (error) {
       console.log(error);
@@ -52,7 +55,7 @@ function hienThiSanPham(data) {
                   <div class="product-item-options">  
                       <div class="product-item-options-button row">
                           <div class="col-lg-8 col1">
-                              <button>Xem sản phẩm</button>
+                          <button><a href="http://127.0.0.1:5500/view/detail.html?id=${product.id}"> Xem sản phẩm</a></button>
                           </div>
                           <div class="col-lg-4 col1">
                               <button onclick="addToCart(event)"><i class="fa-solid fa-cart-plus"></i></button>
@@ -69,29 +72,144 @@ function hienThiSanPham(data) {
   });
 }
 
+function getAllCategory() {
+  axios
+    .get("https://shop.cyberlearn.vn/api/Product/getAllCategory")
+    .then(function (response) {
+      const categories = response.data.content.map((item) => ({
+        id: item.id,
+        category: item.category,
+      }));
+      // console.log('Danh sách danh mục:', categories);
+      renderListCategory(categories);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+function handleCheckboxClick() {
+  var checkboxes = document.getElementsByClassName('category');
+  const selectedCategoryIds = [];
+
+  Array.from(checkboxes).forEach(function (checkbox) {
+    if (checkbox.checked) {
+      selectedCategoryIds.push(checkbox.id);
+    }
+  });
+
+  console.log('selectedCategoryIds:', selectedCategoryIds);
+
+  var filteredProducts = [];
+  if (selectedCategoryIds.length > 0) {
+    filteredProducts = productList.filter(function (product) {
+      return selectedCategoryIds.includes(product.categories);
+    });
+  } else {
+    filteredProducts = productList;
+  }
+  console.log("Danh sach san pham",filteredProducts)
+
+  hienThiSanPham(filteredProducts);
+}
+
+function getProductByCategory(category) {
+  axios({
+    method: 'get',
+    url: `https://shop.cyberlearn.vn/api/Product/getProductByCategory?categoryId=${category.id}`
+  })
+  .then(function (response) {
+    // console.log(`Danh mục: ${category.category}`);
+    console.log('Danh sách sản phẩm:', response.data);
+    // productList = productList.concat(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+
+function renderListCategory(categories) {
+  const boxCategory = document.getElementById('category-list');
+  const contentCategory = categories.map((category) => {
+    return `
+        <div class="product-left-category-item-item" id="category">
+            <div class="product-left-category-item-item-input" id="category-${category.id}">
+                <label class="checkbox_item">
+                    <input type="checkbox" id="${category.id}" class="category" onchange="handleCheckboxClick(${category.id})">
+                    <i class="fa-solid fa-check checkbox_item_icon"></i>
+                    <div class="product-left-category-item-item-color"></div>
+                    <span>${category.category}</span>
+                </label>
+            </div>
+        </div>
+    `;
+  });
+
+  boxCategory.innerHTML = contentCategory.join('');
+
+  // Gọi hàm getProductByCategory cho mỗi danh mục
+  categories.forEach(function (category) {
+    getProductByCategory(category);
+  });
+}
+
 // Gọi hàm lấy dữ liệu và hiển thị sản phẩm khi trang web được tải
 document.addEventListener('DOMContentLoaded', function () {
   layDuLieu();
+  getAllCategory();
 });
 
-function sortProducts() {
-  var sortOptions = document.getElementById('sortOptions');
-  var sortBy = sortOptions.value;
 
-  // Sắp xếp danh sácpriceHighToLowh sản phẩm dựa trên tùy chọn đã chọn
-  if (sortBy === 'Giá (Từ cao đến thấp)') {
-    productList.sort(function (a, b) {
-      return b.price - a.price;
+function handleCheckboxPriceClick() {
+  var checkboxes = document.getElementsByClassName('price');
+  var selectedPrices = [];
+
+  Array.from(checkboxes).forEach(function (checkbox) {
+    if (checkbox.checked) {
+      selectedPrices.push(checkbox.value);
+    }
+  });
+
+  console.log('selectedPrices:', selectedPrices);
+
+  var filteredProducts = [];
+  if (selectedPrices.length > 0) {
+    filteredProducts = productList.filter(function (product) {
+      return selectedPrices.includes(product.price.toString());
     });
-  } else if (sortBy === 'Hàng (Từ thấp đến cao)') {
-    productList.sort(function (a, b) {
-      return a.price - b.price;
-    });
+  } else {
+    filteredProducts = productList;
   }
 
-  // Hiển thị lại danh sách sản phẩm đã được sắp xếp
-  hienThiSanPham(productList);
+  console.log("Filtered Products:", filteredProducts);
+
+  // TODO: Thực hiện hiển thị danh sách sản phẩm tương ứng
 }
+// Tìm kiếm sản phẩm
+function searchProducts(keyword) {
+  // Chuyển đổi từ khóa tìm kiếm thành chữ thường
+  var lowerCaseKeyword = keyword.toLowerCase();
+
+  // Lọc danh sách sản phẩm theo từ khóa tìm kiếm
+  var filteredProducts = productList.filter(function (product) {
+    var lowerCaseName = product.name.toLowerCase();
+    return lowerCaseName.includes(lowerCaseKeyword);
+  });
+
+  // Hiển thị sản phẩm đã lọc
+  hienThiSanPham(filteredProducts);
+}
+
+document.getElementsByClassName('search-form')[0].addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var keyword = document.getElementById('searchKeyword').value.trim();
+  searchProducts(keyword);
+});
+
+
+
+
 
 var cart = [];
 var cartItemId = 1;
@@ -154,7 +272,7 @@ function updateCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
   renderCart(cart);
-  
+
 }
 
 
@@ -193,7 +311,7 @@ function renderCart(cart) {
   });
 }
 function removeFromCart(id) {
-  var index = cart.findIndex(function(item) {
+  var index = cart.findIndex(function (item) {
     return item.id === id;
   });
 
@@ -215,11 +333,11 @@ function updateSubTotal() {
   document.getElementById('total-value').innerHTML = '$' + total.toFixed(2);
 }
 
-function calTotal(){
+function calTotal() {
   var shippingFee = calculateShippingFee(cart);
   var subTotal = calSubTotal(cart);
   var total = shippingFee + subTotal;
-  return total; 
+  return total;
 }
 function calSubTotal(cart) {
   var subTotal = 0;
@@ -240,7 +358,7 @@ if (savedCart) {
 
 function calculateShippingFee(cart) {
   var totalQuantity = 0;
-  cart.forEach(function(item) {
+  cart.forEach(function (item) {
     totalQuantity += item.quantityOrder;
   });
 
@@ -248,12 +366,29 @@ function calculateShippingFee(cart) {
     return 5;
   } else if (totalQuantity <= 5) {
     return 10;
-  } else if(totalQuantity > 5) {
+  } else if (totalQuantity > 5) {
     return 15;
-  }else{
+  } else {
     return 0;
   }
 }
 
+function sortProducts() {
+  var sortOptions = document.getElementById('sortOptions');
+  var sortBy = sortOptions.value;
 
+  // Sắp xếp danh sách sản phẩm dựa trên tùy chọn đã chọn
+  if (sortBy === 'Giá (Từ cao đến thấp)') {
+    productList.sort(function (a, b) {
+      return b.price - a.price;
+    });
+  } else if (sortBy === 'Hàng (Từ thấp đến cao)') {
+    productList.sort(function (a, b) {
+      return a.price - b.price;
+    });
+  }
+
+  // Hiển thị lại danh sách sản phẩm đã được sắp xếp
+  hienThiSanPham(productList);
+}
 
