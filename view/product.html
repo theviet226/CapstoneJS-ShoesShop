@@ -60,18 +60,10 @@
                                     </div>
                                 </li>
                                 <li class="menu-list">
-                                    <div class="menu-header dropdown">
-                                        <a href="" class="nav-link">
-                                            Danh mục
+                                    <div class="menu-header">
+                                        <a href="/view/product.html" class="nav-link">
+                                            Sản phẩm
                                         </a>
-                                        <span>
-                                            <i class="icon-dropdown fa-solid fa-angle-down"></i>
-                                        </span>
-                                        <div class="dropdown-content">
-                                            <p>Tên danh mục 1</p>
-                                            <p>Tên danh mục 2</p>
-                                            <p>Tên danh mục 3</p>
-                                        </div>
                                     </div>
                                 </li>
                                 <li class="menu-list">
@@ -100,8 +92,7 @@
                                 <button class="cart-btn bg-transparent" onclick="toggleSidebar()"><i
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
-                                    <span class="cart-item-count">0</span> items
-                                    <div class="cart-items-container" id="cart-items-container"></div>
+                                    <span class="cart-item-count">0</span> 
                                 </div>
                             </a>
                             <a class="header-action-item" href="">
@@ -174,35 +165,8 @@
                                     </div> -->
 
                                 </div>
-
                             </div>
                         </div>
-                        <!-- <div class="product-left-category-item">
-                            <div class="product-left-category-item-title">
-                                <h2>Màu sắc</h2>
-                            </div>
-                            <div class="product-left-category-item-content">
-                                <hr>
-                                <div class="product-left-category-item-wrap">
-
-                                    <div class="product-left-category-item-item">
-                                        <div class="product-left-category-item-item-input">
-                                            <label class="checkbox_item">
-                                                <input type="checkbox" id="0" class="mausac">
-                                                <i class="fa-solid fa-check checkbox_item_icon"></i>
-                                                <div class="product-left-category-item-item-color">
-                                                    <div class="product-left-category-item-item-color-item">
-                                                        <span style="background: '{{$color}}'"></span>
-                                                    </div>
-                                                </div>
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="product-left-category-item">
                             <div class="product-left-category-item-title">
                                 <h2>Kích thước</h2>
@@ -338,7 +302,6 @@
                 <div class="product-right container container_full_width--lg_down">
                     <div class="product-right-top">
                         <div class="product-right-top-item">
-                            <h3>Sắp xếp theo:</h3>
                             <div class="product-right-top-item-options">
                                 <div class="product-right-top-item-options-item">
                                     <div class="product-right-top-item-options-item-content">
@@ -529,108 +492,10 @@
             });
         });
     </script>
+    <script>
+        
+    </script>
 
 </body>
 
 </html>
-<!-- <script>
-    var productList = []; // Biến global lưu danh sách sản phẩm
-
-    function layDuLieu() {
-        axios({
-            method: 'get',
-            url: 'https://shop.cyberlearn.vn/api/Product'
-        })
-            .then(function (result) {
-                productList = result.data.content;
-                console.log(productList)
-                hienThiSanPham(productList);
-
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-
-    // Hiển thị sản phẩm
-    function hienThiSanPham(data) {
-        var sortOptions = document.getElementById('sortOptions');
-        var sortBy = sortOptions.value;
-
-        if (sortBy === 'Giá (Từ cao đến thấp)') {
-            data.sort(function (a, b) {
-                return b.price - a.price;
-            });
-        } else if (sortBy === 'Hàng (Từ thấp đến cao)') {
-            data.sort(function (a, b) {
-                return a.price - b.price;
-            });
-        }
-        var shoesList = document.getElementById('wrapper-list-products');
-
-        // Xóa nội dung trong phần tử shoesList trước khi hiển thị
-        shoesList.innerHTML = '';
-
-        // Duyệt qua từng sản phẩm và tạo HTML tương ứng
-        data.forEach(function (product) {
-            var productHTML = `
-      <div class="product-wrap col-lg-4 m-12 c-12">
-          <a href="">
-              <div class="product-item">
-                  <div class="swiper swiper-slide">
-                      <div class="swiper-wrapper">
-                          <div class="swiper-slide product-item-img">
-                              <img src="${product.image}" />
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-item-description">
-                      <span class="card-title">${product.name}</span>
-                      <span class="text-muted">${product.price}$</span>
-                  </div>
-                  <div class="product-item-options">  
-                      <div class="product-item-options-button row">
-                          <div class="col-lg-8 col1">
-                          <button><a href="http://127.0.0.1:5500/view/detail.html?id=${product.id}"> Xem sản phẩm</a></button>
-                          </div>
-                          <div class="col-lg-4 col1">
-                              <button onclick="addToCart(event)"><i class="fa-solid fa-cart-plus"></i></button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </a>
-      </div>
-      `;
-
-            // Thêm sản phẩm vào phần tử shoesList
-            shoesList.innerHTML += productHTML;
-        });
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-        layDuLieu();
-        getAllCategory();
-    });
-
-    // Tìm kiếm sản phẩm
-    function searchProducts(keyword) {
-        // Chuyển đổi từ khóa tìm kiếm thành chữ thường
-        var lowerCaseKeyword = keyword.toLowerCase();
-
-        // Lọc danh sách sản phẩm theo từ khóa tìm kiếm
-        var filteredProducts = productList.filter(function (product) {
-            var lowerCaseName = product.name.toLowerCase();
-            return lowerCaseName.includes(lowerCaseKeyword);
-        });
-
-        // Hiển thị sản phẩm đã lọc
-        hienThiSanPham(filteredProducts);
-    }
-
-    document.querySelector('.search-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        var keyword = document.getElementById('searchKeyword').value.trim();
-        searchProducts(keyword);
-    });
-</script> -->

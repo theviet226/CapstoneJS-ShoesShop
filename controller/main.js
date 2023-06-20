@@ -1,4 +1,4 @@
-var productList = []; // Biến global lưu danh sách sản phẩm
+var productList = []; 
 
 function layDuLieu() {
   axios({
@@ -32,10 +32,10 @@ function hienThiSanPham(data) {
   }
   var shoesList = document.getElementById('wrapper-list-products');
 
-  // Xóa nội dung trong phần tử shoesList trước khi hiển thị
+ 
   shoesList.innerHTML = '';
 
-  // Duyệt qua từng sản phẩm và tạo HTML tương ứng
+
   data.forEach(function (product) {
     var productHTML = `
       <div class="product-wrap col-lg-4 m-12 c-12">
@@ -67,7 +67,7 @@ function hienThiSanPham(data) {
       </div>
       `;
 
-    // Thêm sản phẩm vào phần tử shoesList
+
     shoesList.innerHTML += productHTML;
   });
 }
@@ -153,50 +153,26 @@ function renderListCategory(categories) {
   });
 }
 
-// Gọi hàm lấy dữ liệu và hiển thị sản phẩm khi trang web được tải
+
 document.addEventListener('DOMContentLoaded', function () {
   layDuLieu();
   getAllCategory();
+  updateCart();
 });
 
 
-function handleCheckboxPriceClick() {
-  var checkboxes = document.getElementsByClassName('price');
-  var selectedPrices = [];
-
-  Array.from(checkboxes).forEach(function (checkbox) {
-    if (checkbox.checked) {
-      selectedPrices.push(checkbox.value);
-    }
-  });
-
-  console.log('selectedPrices:', selectedPrices);
-
-  var filteredProducts = [];
-  if (selectedPrices.length > 0) {
-    filteredProducts = productList.filter(function (product) {
-      return selectedPrices.includes(product.price.toString());
-    });
-  } else {
-    filteredProducts = productList;
-  }
-
-  console.log("Filtered Products:", filteredProducts);
-
-  // TODO: Thực hiện hiển thị danh sách sản phẩm tương ứng
-}
 // Tìm kiếm sản phẩm
 function searchProducts(keyword) {
-  // Chuyển đổi từ khóa tìm kiếm thành chữ thường
+
   var lowerCaseKeyword = keyword.toLowerCase();
 
-  // Lọc danh sách sản phẩm theo từ khóa tìm kiếm
+
   var filteredProducts = productList.filter(function (product) {
     var lowerCaseName = product.name.toLowerCase();
     return lowerCaseName.includes(lowerCaseKeyword);
   });
 
-  // Hiển thị sản phẩm đã lọc
+
   hienThiSanPham(filteredProducts);
 }
 
@@ -213,7 +189,15 @@ document.getElementsByClassName('search-form')[0].addEventListener('submit', fun
 
 var cart = [];
 var cartItemId = 1;
-
+function generateItemId() {
+  var maxId = 0;
+  cart.forEach(function (item) {
+    if (item.id > maxId) {
+      maxId = item.id;
+    }
+  });
+  return maxId + 1;
+}
 function addToCart(event) {
   event.preventDefault();
   var productName = event.target.closest('.product-item').querySelector('.card-title').innerText;
@@ -228,8 +212,7 @@ function addToCart(event) {
     existingCartItem.quantityOrder += 1;
   } else {
     var cartItem = new CartItem(productName, productPrice, 1, productImage);
-    cartItem.id = cartItemId;
-    cartItemId++;
+    cartItem.id = generateItemId();
     cart.push(cartItem);
   }
 
@@ -239,6 +222,7 @@ function addToCart(event) {
 
 
 function btnAdd(id) {
+  console.log('btnAdd called with id:', id);
   let cartItem = findItemById(cart, id);
   if (cartItem) cartItem.quantityOrder++;
   updateCart();
@@ -247,6 +231,7 @@ function btnAdd(id) {
 
 
 function btnMinus(id) {
+  console.log('btnMinus called with id:', id);
   let cartItem = findItemById(cart, id);
   if (cartItem) {
     if (cartItem.quantityOrder > 1) {
@@ -261,11 +246,21 @@ function btnMinus(id) {
 
 function findItemById(cart, id) {
   return cart.find(function (item) {
-    return item.id === id;
+    return item.id === parseInt(id);
   });
 }
 
+
 function updateCart() {
+  var cartItemCountElement = document.querySelector('.cart-item-count');
+  var totalQuantity = 0;
+  cart.forEach(function (item) {
+    totalQuantity += item.quantityOrder;
+  });
+
+  // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
+  cartItemCountElement.textContent = totalQuantity;
+  
   if (cart.length === 0) {
     localStorage.removeItem('cart');
   } else {
@@ -368,7 +363,7 @@ function calculateShippingFee(cart) {
     return 10;
   } else if (totalQuantity > 5) {
     return 15;
-  } else {
+  } else if (totalQuantity = 0) {
     return 0;
   }
 }
