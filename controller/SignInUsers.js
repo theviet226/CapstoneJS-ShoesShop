@@ -13,22 +13,22 @@ function signInUser() {
 
     }).then(function (result) {
         console.log(result, "result");
-        axios({
-            method: 'post',
-            url: 'https://shop.cyberlearn.vn/api/Users/getProfile',
-            headers: {
-                Authorization: `Bearer ${res.data.content.accessToken}`,
-            },
-        }).then(function (response) {
-            console.log(response, "response");
-            document.getElementById("loginLink").innerHTML = `
-                <i class="fa-solid fa-user"></i>
-                span>${userName}</span>
-                `;
+        // axios({
+        //     method: 'post',
+        //     url: 'https://shop.cyberlearn.vn/api/Users/getProfile',
+        //     headers: {
+        //         Authorization: `Bearer ${res.data.content.accessToken}`,
+        //     },
+        // }).then(function (response) {
+        //     console.log(response, "response");
+        //     document.getElementById("loginLink").innerHTML = `
+        //         <i class="fa-solid fa-user"></i>
+        //         span>${userName}</span>
+        //         `;
 
-        }).catch(function (error) {
-            console.log(error);
-        }),
+        // }).catch(function (error) {
+        //     console.log(error);
+        // }),
 
             //     const userName = result.data.name;
             //     document.getElementById("loginLink").innerHTML = `
