@@ -1,0 +1,29 @@
+.signInShoes{
+    text-align: center;
+    padding-bottom: 20px;
+    h1{
+        @include styleText($color-dark-1, none, none);
+    }
+}
+.signUpShoes{
+    text-align: center;
+    padding-bottom: 20px;
+    h1{
+        @include styleText($color-dark-1, none, none);
+    }
+}
+
+
+.form-group .width-form-sign{
+    width: 60%;
+    margin: 0 auto;
+
+}
+
+form .btn-sign{
+    margin-bottom: 15px;
+    @include styleButton($color-blue-2, 15px, 44px, none, 8px);
+    &:hover{
+        @include styleButtonHover($color-blue-1, none, $color-white-2);
+    }
+}

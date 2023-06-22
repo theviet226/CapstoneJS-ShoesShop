@@ -440,9 +440,7 @@ nav#breadcrumbs a:hover {
 }
 
 .right .systemList {
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   background-color: white;
   padding: 10px;
@@ -451,9 +449,7 @@ nav#breadcrumbs a:hover {
 
 .right .systemList > li {
   list-style: none;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -470,9 +466,7 @@ nav#breadcrumbs a:hover {
 }
 
 .item .bottomLeft {
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   position: absolute;
   bottom: 40px;
@@ -499,9 +493,7 @@ nav#breadcrumbs a:hover {
 
 .item .bottomRight {
   position: absolute;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   bottom: 40px;
   right: 40px;
@@ -542,9 +534,7 @@ nav#breadcrumbs a:hover {
 
 .item .product {
   position: relative;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -1293,9 +1283,7 @@ input[type=tel] {
   text-align: center;
   font-size: 16px;
   margin-bottom: 12px;
-  -webkit-user-select: text;
-     -moz-user-select: text;
-          user-select: text;
+  user-select: text;
 }
 
 .product-right-content .product-right-content-wrap .product-wrap .product-item .product-item-options .product-item-options-button button {
@@ -1421,9 +1409,7 @@ img {
   border-radius: 8px;
   color: #ccc;
   font-size: 12px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description h2 {
@@ -1646,9 +1632,7 @@ img {
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom .detail-product-right-bottom-description span {
   line-height: 30px;
-  -webkit-user-select: text;
-     -moz-user-select: text;
-          user-select: text;
+  user-select: text;
 }
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom .detail-product-right-bottom-information {
@@ -1657,9 +1641,7 @@ img {
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom .detail-product-right-bottom-information li {
   line-height: 30px;
-  -webkit-user-select: text;
-     -moz-user-select: text;
-          user-select: text;
+  user-select: text;
 }
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom hr {
@@ -1834,6 +1816,8 @@ img {
   position: absolute;
   left: 50%;
   top: 160px;
+  -webkit-transform: translateX(-175px);
+  -ms-transform: translateX(-175px);
   transform: translateX(-175px);
 }
 
@@ -1843,6 +1827,8 @@ img {
   position: absolute;
   bottom: -75px;
   left: 50%;
+  -webkit-transform: translateX(-18px);
+  -ms-transform: translateX(-18px);
   transform: translateX(-18px);
 }
 
@@ -1853,6 +1839,7 @@ img {
   padding: 23px 0;
   position: relative;
   z-index: 1;
+  -webkit-box-shadow: 0 0 20px 5px rgba(12, 7, 26, 0.15);
   box-shadow: 0 0 20px 5px rgba(12, 7, 26, 0.15);
 }
 
@@ -1860,6 +1847,8 @@ img {
   position: absolute;
   left: 50%;
   bottom: -30px;
+  -webkit-transform: translateX(-6px);
+  -ms-transform: translateX(-6px);
   transform: translateX(-6px);
   border: 12px solid transparent;
   border-top: 30px solid #ffffff;
@@ -1907,10 +1896,6 @@ img {
   border-radius: 4px;
 }
 
-.contact-form form input::-moz-placeholder {
-  color: #6f6f6f;
-}
-
 .contact-form form input::placeholder {
   color: #6f6f6f;
 }
@@ -1928,10 +1913,6 @@ img {
   resize: none;
 }
 
-.contact-form form textarea::-moz-placeholder {
-  color: #6f6f6f;
-}
-
 .contact-form form textarea::placeholder {
   color: #6f6f6f;
 }
@@ -1939,4 +1920,43 @@ img {
 .contact-form form button {
   font-size: 18px;
   letter-spacing: 2px;
+}
+
+.signInShoes {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.signInShoes h1 {
+  color: #000;
+  font-size: none;
+  font-weight: none;
+}
+
+.signUpShoes {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.signUpShoes h1 {
+  color: #000;
+  font-size: none;
+  font-weight: none;
+}
+
+.form-group .width-form-sign {
+  width: 60%;
+  margin: 0 auto;
+}
+
+form .btn-sign {
+  margin-bottom: 15px;
+  background: #2a73dd;
+  padding: 15px 44px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.5s;
+}
+form .btn-sign:hover {
+  background: #1d365e;
+  border-color: none;
+  color: #e2ebfc;
 }/*# sourceMappingURL=main.css.map */
