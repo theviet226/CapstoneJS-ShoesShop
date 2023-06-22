@@ -37,12 +37,8 @@
                         <div class="header-top-content d-flex justify-content-end">
                             <a href="./view/signIn.html" class="login text-white">
                                 <i class="fa-solid fa-user"></i>
-                                <span>Sign In</span>
+                                <span id="loggedInUserName">Sign In</span>
                             </a>
-                            <!-- <a href="./view/signUp.html" class="login text-white">
-                                <i class="fa-solid fa-user"></i>
-                                <span>Sign Up</span>
-                            </a> -->
                         </div>
                         <div class="currency-wrapper">
                         </div>
@@ -459,6 +455,7 @@
 
 
 
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var searchIcon = document.getElementById('search-icon');
@@ -469,6 +466,18 @@
                 searchWrapper.classList.toggle('search-appear');
             });
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lấy giá trị của query parameter 'name' từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const nameUser = urlParams.get('name');
+
+            // Hiển thị tên người dùng trong phần tử có ID "loggedInUserName"
+            let loggedInUserName = document.querySelector("#loggedInUserName");
+            loggedInUserName.innerHTML = nameUser;
+        });
+
     </script>
 
 </body>

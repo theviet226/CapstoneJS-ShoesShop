@@ -46,6 +46,8 @@ function signUpUser() {
     }).then(function (result) {
       console.log(result.data.content);
       alert('Đăng ký thành công');
+      localStorage.setItem('name', nameUser);
+      console.log(localStorage.getItem('userList'))
     }).catch(function (error) {
       console.log(error);
     });
