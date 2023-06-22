@@ -60,18 +60,10 @@
                                     </div>
                                 </li>
                                 <li class="menu-list">
-                                    <div class="menu-header dropdown">
+                                    <div class="menu-header">
                                         <a href="/view/product.html" class="nav-link">
-                                            Danh mục
+                                            Sản phẩm
                                         </a>
-                                        <span>
-                                            <i class="icon-dropdown fa-solid fa-angle-down"></i>
-                                        </span>
-                                        <div class="dropdown-content">
-                                            <p>Tên danh mục 1</p>
-                                            <p>Tên danh mục 2</p>
-                                            <p>Tên danh mục 3</p>
-                                        </div>
                                     </div>
                                 </li>
                                 <li class="menu-list">
@@ -83,7 +75,7 @@
                                 </li>
                                 <li class="menu-list">
                                     <div class="menu-header">
-                                        <a href="" class="nav-link">
+                                        <a href="/view/contact.html" class="nav-link">
                                             Contact
                                         </a>
                                     </div>
@@ -129,6 +121,10 @@
             </div>
         </div>
     </header>
+    <nav id="breadcrumbs" class="breadcrumbs">
+        <div class="container page-wrapper AllBreadcrumbs">
+          <a href="http://127.0.0.1:5500" rel="nofollow">Home</a>&nbsp;&nbsp;»&nbsp;&nbsp;Cart</div>
+      </nav>
     <section class="cart-page mt-100">
         <div class="container">
             <div class="cart-page-wrapper">
@@ -362,6 +358,26 @@
             </div>
         </div>
     </footer>
+    <button id="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
+
+    <div id="chat-popup">
+        <div id="chat-header">
+            <span id="chat-title">Chatbox</span>
+            <button id="close-chat-btn">Đóng</button>
+        </div>
+        <div id="chat-content">
+            
+            <div id="user-options">
+              <button class="option-btn">Có sản phẩm mới không?</button>
+              <button class="option-btn">Làm thế nào để đặt hàng?</button>
+              <button class="option-btn">Bao lâu để nhận được đơn hàng?</button>
+              <button class="option-btn">Có hỗ trợ đổi trả sản phẩm không?</button>
+              <button class="option-btn">Làm thế nào để liên hệ với chúng tôi?</button>
+            </div>
+            <div id="chat-messages"></div>
+            <input type="text" id="user-input" placeholder="Nhập tin nhắn...">
+          </div>
+    </div>
 
 
 

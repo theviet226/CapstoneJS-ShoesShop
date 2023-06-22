@@ -24,7 +24,15 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 col-12"></div>
                 <div class="col-lg-3">
-                    <div class="header-top-wrapper mx-auto">
+
+                    <div class="header-top-wrapper mx-auto d-flex">
+                        <div class="header-top-socical mr-4">
+                            <a class="mr-3" href="https://www.facebook.com/Trumforestt"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a class="mr-3" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a class="mr-3" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
                         <div class="header-top-content d-flex justify-content-end">
                             <a href="" class="login text-white">
                                 <i class="fa-solid fa-user"></i>
@@ -75,7 +83,7 @@
                                 </li>
                                 <li class="menu-list">
                                     <div class="menu-header">
-                                        <a href="" class="nav-link">
+                                        <a href="/view/contact.html" class="nav-link">
                                             Contact
                                         </a>
                                     </div>
@@ -92,8 +100,8 @@
                                 <button class="cart-btn bg-transparent" onclick=""><i
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
-                                    <span class="cart-item-count"></span> 
-                                    
+                                    <span class="cart-item-count"></span>
+
                                 </div>
                             </a>
                             <a class="header-action-item" href="">
@@ -132,7 +140,9 @@
 
 
                     <div class="bottomRight content">
-                        <a href="http://127.0.0.1:5500/view/detail.html?id=9"><i class="fas fa-shopping-cart cartBtn"></i></a>
+                        <a href="http://127.0.0.1:5500/view/detail.html?id=7">
+                            <i class="fas fa-shopping-cart cartBtn"></i>
+                        </a>
                     </div>
 
                     <div class="product">
@@ -146,7 +156,10 @@
                         <p class="description">The midsole contains 20% more Boost for an amplified Boost feeling.</p>
                     </div>
                     <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
+                        <a href="http://127.0.0.1:5500/view/detail.html?id=11">
+                            <i class="fas fa-shopping-cart cartBtn"></i>
+                        </a>
+
                     </div>
 
                     <div class="product">
@@ -162,7 +175,9 @@
 
 
                     <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
+                        <a href="http://127.0.0.1:5500/view/detail.html?id=16">
+                            <i class="fas fa-shopping-cart cartBtn"></i>
+                        </a>
                     </div>
 
                     <div class="product">
@@ -177,7 +192,9 @@
                     </div>
 
                     <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
+                        <a href="http://127.0.0.1:5500/view/detail.html?id=9">
+                            <i class="fas fa-shopping-cart cartBtn"></i>
+                        </a>
                     </div>
 
                     <div class="product">
@@ -193,7 +210,9 @@
 
 
                     <div class="bottomRight content">
-                        <i class="fas fa-shopping-cart cartBtn"></i>
+                        <a href="http://127.0.0.1:5500/view/detail.html?id=2">
+                            <i class="fas fa-shopping-cart cartBtn"></i>
+                        </a>
                     </div>
 
                     <div class="product">
@@ -206,6 +225,8 @@
             <button class="next functionBtn"><i class="fas fa-angle-right"></i></button>
         </div>
     </section>
+
+
     <section class="services mt-80 overflow-hidden">
         <div class="container">
             <div class="row justify-content-center services-row">
@@ -393,6 +414,26 @@
             </div>
         </div>
     </footer>
+    <button id="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
+
+    <div id="chat-popup">
+        <div id="chat-header">
+            <span id="chat-title">Chatbox</span>
+            <button id="close-chat-btn">Đóng</button>
+        </div>
+        <div id="chat-content">
+
+            <div id="user-options">
+                <button class="option-btn">Có sản phẩm mới không?</button>
+                <button class="option-btn">Làm thế nào để đặt hàng?</button>
+                <button class="option-btn">Bao lâu để nhận được đơn hàng?</button>
+                <button class="option-btn">Có hỗ trợ đổi trả sản phẩm không?</button>
+                <button class="option-btn">Làm thế nào để liên hệ với chúng tôi?</button>
+            </div>
+            <div id="chat-messages"></div>
+            <input type="text" id="user-input" placeholder="Nhập tin nhắn...">
+        </div>
+    </div>
 
 
 
@@ -411,6 +452,8 @@
     <!-- <script src="/controller/card.js"></script> -->
     <script src="./controller/main.js"></script>
 
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var searchIcon = document.getElementById('search-icon');
@@ -426,105 +469,3 @@
 </body>
 
 </html>
-
-
-
-
-<!-- <div class="product-wrap col l-4 m-12 c-12">
-    <a href="">
-        <div class="product-item">
-            <div class="swiper swiper-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide product-item-img">
-                        <img src="${product.image}" />
-                    </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-            <div
-                class="product-item-description"><span>${product.name}</span><span>${product.price}</span>
-            </div>
-            <div
-                class="product-item-options">
-                <div
-                    class="product-item-options-sizes">
-                    <div class="swiper swiper-size">
-                        <div class="swiper-wrapper">
-                            @php
-                                $listsizes = explode('@@', $product->sizes);
-                            @endphp
-                            <div class="swiper-slide product-item-options-sizes-item">
-                                @foreach($listsizes as $key => $size)
-                                    @php
-                                        if($key>3) break;
-                                    @endphp
-                                    <span>{{$size}}</span>
-                                @endforeach
-                            </div>
-                            @if(count($listsizes)>4)
-                                <div class="swiper-slide product-item-options-sizes-item">
-                                    @for($i=4; $i< count($listsizes); $i++)
-                                        <span>{{$listsizes[$i]}}</span>
-                                    @endfor
-                                </div>
-                            @endif
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                <div class="product-item-options-button row">
-                    <div class="col-lg-6">
-                        <button><i class="fa-solid fa-cart-plus"></i></button>
-                    </div>
-                    <div class="col-lg-6">
-                        <button>Xem sản phẩm</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div> -->
-
-<div class="product-wrap col-lg-4 m-12 c-12">
-    <a href="">
-        <div class="product-item">
-            <div class="swiper swiper-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide product-item-img">
-                        <img src="${product.image}" class="card-img" />
-                    </div>
-                </div>
-            </div>
-            <div class="product-item-description">
-                <h5 class="card-title" >${product.name}</h5>
-                <h6 class="text-muted">${product.price}$</h6>
-            </div>
-            <div
-                class="product-item-options">  
-                <div class="product-item-options-button row">
-                <div class="col-lg-8 col1">
-                <button>Xem sản phẩm</button>
-            </div>
-            <div class="col-lg-4 col1">
-            <button onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i></button>
-            </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-<!-- <div class="col-lg-4 col-md-6">
-    <div class="content-overlay"></div>
-    <img src="${product.image}" class="card-img" alt="Phone Image" />
-    <div class="card-body text-center">
-      <div class="text-center">
-        <h5 class="card-title pt-3">${product.name}</h5>
-        <span class="text-muted mb-2">$${product.price}</span>
-      </div>
-      <button class="btn btn-success" onclick="addToCart()">Mua ngay </button>
-    </div>
-  </div> -->
-

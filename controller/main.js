@@ -1,4 +1,4 @@
-var productList = []; 
+var productList = [];
 
 function layDuLieu() {
   axios({
@@ -8,8 +8,8 @@ function layDuLieu() {
     .then(function (result) {
       productList = result.data.content;
       console.log(productList)
-      hienThiSanPham(productList);
-      
+      renderPorudct(productList);
+
     })
     .catch(function (error) {
       console.log(error);
@@ -17,7 +17,7 @@ function layDuLieu() {
 }
 
 // Hiển thị sản phẩm
-function hienThiSanPham(data) {
+function renderPorudct(data) {
   var sortOptions = document.getElementById('sortOptions');
   var sortBy = sortOptions.value;
 
@@ -32,7 +32,7 @@ function hienThiSanPham(data) {
   }
   var shoesList = document.getElementById('wrapper-list-products');
 
- 
+
   shoesList.innerHTML = '';
 
 
@@ -55,7 +55,7 @@ function hienThiSanPham(data) {
                   <div class="product-item-options">  
                       <div class="product-item-options-button row">
                           <div class="col-lg-8 col1">
-                          <button><a href="http://127.0.0.1:5500/view/detail.html?id=${product.id}"> Xem sản phẩm</a></button>
+                          <button><a class="text-product" href="http://127.0.0.1:5500/view/detail.html?id=${product.id}"> Xem sản phẩm</a></button>
                           </div>
                           <div class="col-lg-4 col1">
                               <button onclick="addToCart(event)"><i class="fa-solid fa-cart-plus"></i></button>
@@ -107,9 +107,9 @@ function handleCheckboxClick() {
   } else {
     filteredProducts = productList;
   }
-  console.log("Danh sach san pham",filteredProducts)
+  console.log("Danh sach san pham", filteredProducts)
 
-  hienThiSanPham(filteredProducts);
+  renderPorudct(filteredProducts);
 }
 
 function getProductByCategory(category) {
@@ -117,14 +117,14 @@ function getProductByCategory(category) {
     method: 'get',
     url: `https://shop.cyberlearn.vn/api/Product/getProductByCategory?categoryId=${category.id}`
   })
-  .then(function (response) {
-    // console.log(`Danh mục: ${category.category}`);
-    console.log('Danh sách sản phẩm:', response.data);
-    // productList = productList.concat(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+    .then(function (response) {
+      // console.log(`Danh mục: ${category.category}`);
+      console.log('Danh sách sản phẩm:', response.data);
+      // productList = productList.concat(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 
 
@@ -173,7 +173,7 @@ function searchProducts(keyword) {
   });
 
 
-  hienThiSanPham(filteredProducts);
+  renderPorudct(filteredProducts);
 }
 
 document.getElementsByClassName('search-form')[0].addEventListener('submit', function (event) {
@@ -260,7 +260,7 @@ function updateCart() {
 
   // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
   cartItemCountElement.textContent = totalQuantity;
-  
+
   if (cart.length === 0) {
     localStorage.removeItem('cart');
   } else {
@@ -384,6 +384,113 @@ function sortProducts() {
   }
 
   // Hiển thị lại danh sách sản phẩm đã được sắp xếp
-  hienThiSanPham(productList);
+  renderPorudct(productList);
 }
 
+// Danh sách các câu hỏi mặc định và phản hồi tương ứng
+var questions = {
+  "Xin chào": "Xin chào! Chào mừng bạn đến với cửa hàng của chúng tôi. Bạn cần hỗ trợ gì?",
+  "Có sản phẩm mới không?": "Chúng tôi luôn cập nhật sản phẩm mới. Bạn có thể xem danh sách sản phẩm mới nhất trên trang web của chúng tôi.",
+  "Làm thế nào để đặt hàng?": "Để đặt hàng, bạn có thể truy cập trang web của chúng tôi và chọn sản phẩm bạn muốn mua. Sau đó, điền thông tin giao hàng và thanh toán để hoàn tất đơn hàng.",
+  "Bao lâu để nhận được đơn hàng?": "Thời gian giao hàng phụ thuộc vào địa chỉ của bạn và phương thức vận chuyển bạn chọn. Thông thường, đơn hàng sẽ được giao trong khoảng từ 3-7 ngày làm việc.",
+  "Có hỗ trợ đổi trả sản phẩm không?": "Chúng tôi hỗ trợ đổi trả sản phẩm trong vòng 30 ngày kể từ ngày nhận hàng. Bạn có thể đọc chính sách đổi trả trên trang web của chúng tôi để biết thêm chi tiết.",
+  "Làm thế nào để liên hệ với chúng tôi?": "Bạn có thể liên hệ với chúng tôi qua số điện thoại XXX-XXXX hoặc gửi email tới địa chỉ email của chúng tôi. Chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất."
+};
+
+// Lấy các phần tử từ DOM
+var openChatBtn = document.getElementById("open-chat-btn");
+var closeChatBtn = document.getElementById("close-chat-btn");
+var chatPopup = document.getElementById("chat-popup");
+var chatMessages = document.getElementById("chat-messages");
+var userInput = document.getElementById("user-input");
+
+// Biến lưu trữ trạng thái của chatbox
+var chatboxOpen = false;
+
+// Mở chatbox
+function openChatbox() {
+  chatPopup.style.display = "block";
+  openChatBtn.style.display = "none";
+  chatboxOpen = true;
+}
+
+// Đóng chatbox
+function closeChatbox() {
+  chatPopup.style.display = "none";
+  openChatBtn.style.display = "block";
+  chatboxOpen = false;
+}
+
+// Xử lý câu hỏi từ người dùng và trả lời từ bot
+// Đoạn JavaScript trước giống với ví dụ trước
+
+// Biến lưu trữ các câu hỏi và phản hồi tương ứng
+var options = [
+  {
+    question: "Có sản phẩm mới không?",
+    answer: "Chúng tôi luôn cập nhật sản phẩm mới. Bạn có thể xem danh sách sản phẩm mới nhất trên trang web của chúng tôi."
+  },
+  {
+    question: "Làm thế nào để đặt hàng?",
+    answer: "Để đặt hàng, bạn có thể truy cập trang web của chúng tôi và chọn sản phẩm bạn muốn mua. Sau đó, điền thông tin giao hàng và thanh toán để hoàn tất đơn hàng."
+  },
+  {
+    question: "Bao lâu để nhận được đơn hàng?",
+    answer: "Thời gian giao hàng phụ thuộc vào địa chỉ của bạn và phương thức vận chuyển bạn chọn. Thông thường, đơn hàng sẽ được giao trong khoảng từ 3-7 ngày làm việc."
+  },
+  {
+    question: "Có hỗ trợ đổi trả sản phẩm không?",
+    answer: "Chúng tôi hỗ trợ đổi trả sản phẩm trong vòng 30 ngày kể từ ngày nhận hàng. Bạn có thể đọc chính sách đổi trả trên trang web của chúng tôi để biết thêm chi tiết."
+  },
+  {
+    question: "Làm thế nào để liên hệ với chúng tôi?",
+    answer: "Bạn có thể liên hệ với chúng tôi qua số điện thoại XXX-XXXX hoặc gửi email tới địa chỉ email của chúng tôi. Chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất."
+  }
+];
+
+// Xử lý sự kiện khi người dùng chọn câu hỏi từ các tùy chọn
+function processOptionClick(event) {
+  var selectedOption = event.target.innerHTML;
+  appendMessage("Bạn", selectedOption);
+
+  // Tìm câu hỏi tương ứng trong danh sách
+  var matchedOption = options.find(function(option) {
+    return option.question === selectedOption;
+  });
+
+  // Nếu tìm thấy câu hỏi, bot sẽ trả lời
+  if (matchedOption) {
+    var answer = matchedOption.answer;
+    appendMessage("Bot", answer);
+  }
+  
+}
+
+// Gắn sự kiện click cho các tùy chọn
+var optionBtns = document.getElementsByClassName("option-btn");
+for (var i = 0; i < optionBtns.length; i++) {
+  optionBtns[i].addEventListener("click", processOptionClick);
+}
+
+
+// Thêm tin nhắn vào chatbox
+function appendMessage(sender, message) {
+  var messageElement = document.createElement("p");
+  messageElement.innerHTML = "<strong>" + sender + ":</strong> " + message;
+  chatMessages.appendChild(messageElement);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Sự kiện khi người dùng nhấp vào nút mở chatbox
+openChatBtn.addEventListener("click", openChatbox);
+
+// Sự kiện khi người dùng nhấp vào nút đóng chatbox
+closeChatBtn.addEventListener("click", closeChatbox);
+
+// Xử lý sự kiện khi người dùng nhấn phím Enter trong input
+userInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    processUserInput();
+  }
+});

@@ -24,7 +24,13 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 col-12"></div>
                 <div class="col-lg-3">
-                    <div class="header-top-wrapper mx-auto">
+                    <div class="header-top-wrapper mx-auto d-flex">
+                        <div class="header-top-socical mr-4">
+                            <a class="mr-3" href="https://www.facebook.com/Trumforestt"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a class="mr-3" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a class="mr-3" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
+                        </div>   
                         <div class="header-top-content d-flex justify-content-end">
                             <a href="" class="login text-white">
                                 <i class="fa-solid fa-user"></i>
@@ -75,7 +81,7 @@
                                 </li>
                                 <li class="menu-list">
                                     <div class="menu-header">
-                                        <a href="/view/contact.html" class="nav-link">
+                                        <a href="" class="nav-link">
                                             Contact
                                         </a>
                                     </div>
@@ -93,7 +99,6 @@
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
                                     <span class="cart-item-count"></span> 
-                                    <div class="cart-items-container" id="cart-items-container"></div>
                                 </div>
                             </a>
                             <a class="header-action-item" href="">
@@ -107,11 +112,11 @@
             <div class="search-wrapper">
                 <div class="container">
                     <form action="" class=" search-form d-flex align-items-center">
-                        <button type="submit" class="search-submit bg-transparent pl-0 text-start">
+                        <button onclick="" type="submit" class="search-submit bg-transparent pl-0 text-start">
                             <i class="icon fa-solid fa-magnifying-glass"></i>
                         </button>
                         <div class="search-ipunt mr-4">
-                            <input type="text" name="seacrh" placeholder="Search your products...">
+                            <input type="text" id="searchKeyword" name="seacrh" placeholder="Search your products...">
                         </div>
                         <div class="search-close">
                             <i class="icon fa-solid fa-xmark"></i>
@@ -121,88 +126,85 @@
             </div>
         </div>
     </header>
-    <div class="detail-product">
-        <div class="detail-product-left">
-            <div class="detail-product-left-top grid wide">
-                <div class="detail-product-left-top-item text-center ">
-                    <img class="img-product" src="" alt="">
+    <nav id="breadcrumbs" class="breadcrumbs">
+        <div class="container page-wrapper AllBreadcrumbs">
+          <a href="http://127.0.0.1:5500/index.html" rel="nofollow">Home</a>&nbsp;&nbsp;»&nbsp;&nbsp;Contact</div>
+      </nav>
+
+    <section class="contact spad">
+        <div class="container">
+            <h2 class="text-center mb-5">Get in touch with us</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_phone"><i class="fa-solid fa-phone"></i></span>
+                        <h4>Phone</h4>
+                        <p>+12-345-6789</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="detail-product-right">
-            <div class="detail-product-right-wrap">
-                <div class="detail-product-right-top">
-                    
-                        <div class="detail-product-right-top-description">
-                            <div class="detail-product-right-top-description-new"><span>Mới</span></div>
-                            <h2 class="title">
-
-                            </h2>
-                            <br>
-                            <span class="price"></span>
-                            <input type="hidden" name="id" value="">
-                            <div class="detail-product-right-top-description-size">
-                                <div class="detail-product-right-top-description-size-title">
-                                    <span>Kích thước: </span>
-                                </div>
-                                <div class="size-buttons mb-3">
-                                    <div class="size-buttons">
-                                        <button class="size-button" onclick="selectSize(36)"><span>36</span></button>
-                                        <button class="size-button" onclick="selectSize(37)"><span>37</span></button>
-                                        <button class="size-button" onclick="selectSize(38)"><span>38</span></button>
-                                        <button class="size-button" onclick="selectSize(39)"><span>39</span></button>
-                                        <button class="size-button" onclick="selectSize(40)"><span>40</span></button>
-                                        <button class="size-button" onclick="selectSize(41)"><span>41</span></button>
-                                        <button class="size-button" onclick="selectSize(42)"><span>42</span></button>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="detail-product-right-top-btn">
-                                <button id="btnAddToCart" onclick="">Thêm vào giỏ hàng</button>
-                                <button>Mua Hàng</button>
-                            </div>
-                        </div>
-                    
-                    <div class="detail-product-right-bottom">
-                        <div class="detail-product-right-bottom-title">
-                            <h3 class="detail-product-right-bottom-title-description">Mô tả sản phẩm</h3>
-                        </div>
-                        <div class="detail-product-right-bottom-description ">
-                        </div>
-                        <hr>
-                        <div class="detail-product-right-bottom-promotion">
-                            <div class="detail-product-right-bottom-promotion-title">
-                                <i class="fa-solid fa-bullhorn"></i>
-                                <span>Khuyến mãi</span>
-                            </div>
-                            <div class="detail-product-right-bottom-promotion-icon">
-                                <i class="fa-solid fa-chevron-down detail-product-right-bottom-icon-down"></i>
-                                <i class="fa-solid fa-chevron-up detail-product-right-bottom-icon-up"></i>
-                            </div>
-                        </div>
-                        <div class="detail-product-right-bottom-promotion-information"></div>
-                        <div class="detail-product-right-bottom-delivery">
-                            <div class="detail-product-right-bottom-delivery-title">
-                                <i class="fa-solid fa-truck"></i>
-                                <span>Vận chuyển, trả hàng</span>
-                            </div>
-                            <div class="detail-product-right-bottom-delivery-icon">
-                                <i class="fa-solid fa-chevron-down detail-product-right-bottom-icon-down"></i>
-                                <i class="fa-solid fa-chevron-up detail-product-right-bottom-icon-up"></i>
-                            </div>
-                        </div>
-                        <div class="detail-product-right-bottom-delivery-information">
-                            <li><span>Giao hàng tiêu chuẩn</span>: Dự kiến giao hàng từ 2 - 7 ngày làm việc tùy thuộc
-                                vào khu vực của khách hàng</li>
-                            <li>Tìm hiểu thêm về <span>Đổi trả hàng</span> của chúng tôi</li>
-                            <li> Tất cả các đơn đặt hàng hiện đang được vận chuyển từ Việt Nam</li>
-                        </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_pin_alt"><i class="fa-solid fa-location-dot"></i></span>
+                        <h4>Address</h4>
+                        <p>254 Nguyen Van Linh Da Nang</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_clock_alt"> <i class="fa-regular fa-clock"></i></span>
+                        <h4>Open time</h4>
+                        <p>8:00 am to 20:00 pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_mail_alt"><i class="fa-regular fa-envelope"></i></span>
+                        <h4>Email</h4>
+                        <p>maitheviet@gmail.com</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.4553364179105!2d108.21116347611563!3d16.0418443401685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142193783c2b383%3A0xfc0da842097725c7!2zVHJ1bmcgVMOibSDEkMOgbyBU4bqhbyBM4bqtcCBUcsOsbmggQ3liZXJTb2Z0IC0gQ8ahIFPhu58gxJDDoCBO4bq1bmc!5e0!3m2!1svi!2s!4v1687445633710!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-inside">
+            <i class="icon_pin"></i>
+            <div class="inside-widget">
+                <h4>Da Nang</h4>
+                <ul>
+                    <li>Phone: +12-345-6789</li>
+                    <li>Add: 103 Nguyễn Hữu Dật ,Hải Châu, Đà Nẵng</li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <div class="contact-form spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact__form__title">
+                        <h2>We will Answer all your Questions</h2>
+                    </div>
+                </div>
+            </div>
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="Your name">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="Your Email">
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <textarea placeholder="Your message"></textarea>
+                        <button type="submit" class="site-btn">SEND MESSAGE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <footer class="mt-100 overflow-hidden">
         <div class="footer-top bg-4">
             <div class="container">
@@ -337,6 +339,25 @@
             </div>
         </div>
     </footer>
+    <button id="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
+    <div id="chat-popup">
+        <div id="chat-header">
+            <span id="chat-title">Chatbox</span>
+            <button id="close-chat-btn">Đóng</button>
+        </div>
+        <div id="chat-content">
+            
+            <div id="user-options">
+              <button class="option-btn">Có sản phẩm mới không?</button>
+              <button class="option-btn">Làm thế nào để đặt hàng?</button>
+              <button class="option-btn">Bao lâu để nhận được đơn hàng?</button>
+              <button class="option-btn">Có hỗ trợ đổi trả sản phẩm không?</button>
+              <button class="option-btn">Làm thế nào để liên hệ với chúng tôi?</button>
+            </div>
+            <div id="chat-messages"></div>
+            <input type="text" id="user-input" placeholder="Nhập tin nhắn...">
+          </div>
+    </div>
 
 
 
@@ -348,13 +369,6 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.4.0/dist/axios.min.js"></script>
-
-
-    <script src="/model/Shoes.js"></script>
-    <script src="/model/CartItem.js"></script>
-    <script src="/controller/detail.js"></script>
-    <!-- <script src="/controller/main.js"></script> -->
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var searchIcon = document.getElementById('search-icon');
@@ -367,19 +381,7 @@
         });
     </script>
     <script>
-        function selectSize(size) {
-            sizeButtons.forEach(button => {
-                if (button.textContent === size.toString()) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
-            });
-        }
-    </script>
-    <script>
-        const btnAddToCart = document.querySelector("#btnAddToCart");
-        btnAddToCart.addEventListener("click", addToCart);
+        
     </script>
 
 </body>

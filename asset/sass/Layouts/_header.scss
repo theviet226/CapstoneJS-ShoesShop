@@ -5,8 +5,9 @@
     background-color: rgb(255, 255, 255);
     width: 100%;
 }
+
 header {
-    
+
     .main-menu {
         padding-left: 0;
         list-style: none;
@@ -103,8 +104,8 @@ header {
         border-radius: 50%;
         font-size: 12px;
         font-weight: bold;
-      }
-      
+    }
+
 
     .cart-info.show {
         display: block;
@@ -178,10 +179,54 @@ header {
             }
         }
     }
+
     .header-logo a {
         font-size: 30px;
         font-weight: 600;
         color: #000;
     }
-    
+
+}
+
+.breadcrumbs {
+    padding: 20px 0;
+}
+
+nav#breadcrumbs {
+    padding: 15px 20px;
+    background: #F7F9FC;
+}
+
+.page-wrapper {
+    color: var(--title-color);
+    font-size: 14px;
+}
+
+nav#breadcrumbs a {
+    color: coral;
+    margin: 0 5px 0 0;
+    font-size: 14px;
+}
+
+nav#breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+
+.header-top-socical:after {
+    position: absolute;
+    right: 130px;
+    top: 3px;
+    height: 20px;
+    width: 1px;
+    background: #fff;
+    opacity: 0.5;
+    content: "";
+}
+
+.header-top-socical a {
+    font-size: 18px;
+    display: inline-block;
+    color: #fff;
+    margin-right: 20px;
 }

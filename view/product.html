@@ -24,7 +24,13 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 col-12"></div>
                 <div class="col-lg-3">
-                    <div class="header-top-wrapper mx-auto">
+                    <div class="header-top-wrapper mx-auto d-flex">
+                        <div class="header-top-socical mr-4">
+                            <a class="mr-3" href="https://www.facebook.com/Trumforestt"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a class="mr-3" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a class="mr-3" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
                         <div class="header-top-content d-flex justify-content-end">
                             <a href="" class="login text-white">
                                 <i class="fa-solid fa-user"></i>
@@ -75,7 +81,7 @@
                                 </li>
                                 <li class="menu-list">
                                     <div class="menu-header">
-                                        <a href="" class="nav-link">
+                                        <a href="/view/contact.html" class="nav-link">
                                             Contact
                                         </a>
                                     </div>
@@ -120,7 +126,11 @@
             </div>
         </div>
     </header>
-    <div class="main">
+    <nav id="breadcrumbs" class="breadcrumbs">
+        <div class="container page-wrapper AllBreadcrumbs">
+          <a href="http://127.0.0.1:5500" rel="nofollow">Home</a>&nbsp;&nbsp;»&nbsp;&nbsp;Product    </div>
+      </nav>
+    <div class="main pt-5">
         <div class="container">
             <div class="row flex-nowrap">
                 <div class="product-left col-lg-3">
@@ -462,6 +472,25 @@
             </div>
         </div>
     </footer>
+    <button id="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
+    <div id="chat-popup">
+        <div id="chat-header">
+            <span id="chat-title">Chatbox</span>
+            <button id="close-chat-btn">Đóng</button>
+        </div>
+        <div id="chat-content">
+            
+            <div id="user-options">
+              <button class="option-btn">Có sản phẩm mới không?</button>
+              <button class="option-btn">Làm thế nào để đặt hàng?</button>
+              <button class="option-btn">Bao lâu để nhận được đơn hàng?</button>
+              <button class="option-btn">Có hỗ trợ đổi trả sản phẩm không?</button>
+              <button class="option-btn">Làm thế nào để liên hệ với chúng tôi?</button>
+            </div>
+            <div id="chat-messages"></div>
+            <input type="text" id="user-input" placeholder="Nhập tin nhắn...">
+          </div>
+    </div>
 
 
 

@@ -168,6 +168,7 @@
 
 .bottomRight .cartBtn {
     background-color: white;
+    color: #000;
     height: 10px;
     width: 10px;
     display: flex;
@@ -179,7 +180,7 @@
 }
 
 .bottomRight .cartBtn:hover {
-    cursor: grab;
+    cursor: pointer;
     box-shadow: 3px 3px 3px #999999, -3px -3px 3px white;
 }
 
