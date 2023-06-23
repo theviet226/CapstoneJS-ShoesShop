@@ -102,7 +102,10 @@ function handleCheckboxClick() {
   var filteredProducts = [];
   if (selectedCategoryIds.length > 0) {
     filteredProducts = productList.filter(function (product) {
-      return selectedCategoryIds.includes(product.categories);
+
+      const categories = JSON.parse(product.categories)[0].id;
+      console.log(categories)
+      return selectedCategoryIds.includes(categories);
     });
   } else {
     filteredProducts = productList;
