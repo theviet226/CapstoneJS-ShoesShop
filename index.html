@@ -475,7 +475,11 @@
 
             // Hiển thị tên người dùng trong phần tử có ID "loggedInUserName"
             let loggedInUserName = document.querySelector("#loggedInUserName");
-            loggedInUserName.innerHTML = nameUser;
+            const isLoggedIn = nameUser !== null && nameUser !== '';
+
+            if (isLoggedIn) {
+                loggedInUserName.innerHTML = nameUser;
+            }
         });
 
     </script>
