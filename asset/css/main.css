@@ -350,6 +350,49 @@ nav#breadcrumbs a:hover {
   margin-right: 20px;
 }
 
+.user-profile {
+  position: relative;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 160px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.user-profile:hover .popup {
+  display: block;
+}
+
+.popup a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup a:hover {
+  background-color: #ebebeb;
+}
+
+.avatar-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 5px;
+}
+
 .carousel {
   background-image: linear-gradient(to right, #0a1718, #1fa9b3, #728589);
 }
@@ -440,7 +483,9 @@ nav#breadcrumbs a:hover {
 }
 
 .right .systemList {
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   background-color: white;
   padding: 10px;
@@ -449,7 +494,9 @@ nav#breadcrumbs a:hover {
 
 .right .systemList > li {
   list-style: none;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -466,7 +513,9 @@ nav#breadcrumbs a:hover {
 }
 
 .item .bottomLeft {
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   position: absolute;
   bottom: 40px;
@@ -493,7 +542,9 @@ nav#breadcrumbs a:hover {
 
 .item .bottomRight {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   bottom: 40px;
   right: 40px;
@@ -534,7 +585,9 @@ nav#breadcrumbs a:hover {
 
 .item .product {
   position: relative;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -1283,7 +1336,9 @@ input[type=tel] {
   text-align: center;
   font-size: 16px;
   margin-bottom: 12px;
-  user-select: text;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
 }
 
 .product-right-content .product-right-content-wrap .product-wrap .product-item .product-item-options .product-item-options-button button {
@@ -1409,7 +1464,9 @@ img {
   border-radius: 8px;
   color: #ccc;
   font-size: 12px;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description h2 {
@@ -1632,7 +1689,9 @@ img {
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom .detail-product-right-bottom-description span {
   line-height: 30px;
-  user-select: text;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
 }
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom .detail-product-right-bottom-information {
@@ -1641,7 +1700,9 @@ img {
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom .detail-product-right-bottom-information li {
   line-height: 30px;
-  user-select: text;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
 }
 
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-bottom hr {
@@ -1816,8 +1877,6 @@ img {
   position: absolute;
   left: 50%;
   top: 160px;
-  -webkit-transform: translateX(-175px);
-  -ms-transform: translateX(-175px);
   transform: translateX(-175px);
 }
 
@@ -1827,8 +1886,6 @@ img {
   position: absolute;
   bottom: -75px;
   left: 50%;
-  -webkit-transform: translateX(-18px);
-  -ms-transform: translateX(-18px);
   transform: translateX(-18px);
 }
 
@@ -1839,7 +1896,6 @@ img {
   padding: 23px 0;
   position: relative;
   z-index: 1;
-  -webkit-box-shadow: 0 0 20px 5px rgba(12, 7, 26, 0.15);
   box-shadow: 0 0 20px 5px rgba(12, 7, 26, 0.15);
 }
 
@@ -1847,8 +1903,6 @@ img {
   position: absolute;
   left: 50%;
   bottom: -30px;
-  -webkit-transform: translateX(-6px);
-  -ms-transform: translateX(-6px);
   transform: translateX(-6px);
   border: 12px solid transparent;
   border-top: 30px solid #ffffff;
@@ -1896,6 +1950,10 @@ img {
   border-radius: 4px;
 }
 
+.contact-form form input::-moz-placeholder {
+  color: #6f6f6f;
+}
+
 .contact-form form input::placeholder {
   color: #6f6f6f;
 }
@@ -1911,6 +1969,10 @@ img {
   border-radius: 4px;
   padding-top: 12px;
   resize: none;
+}
+
+.contact-form form textarea::-moz-placeholder {
+  color: #6f6f6f;
 }
 
 .contact-form form textarea::placeholder {
@@ -1959,4 +2021,94 @@ form .btn-sign:hover {
   background: #1d365e;
   border-color: none;
   color: #e2ebfc;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.profile-section {
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-section p {
+  margin: 0;
+}
+
+.avatar-section {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-section label {
+  margin-right: 10px;
+}
+
+.avatar-section img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.avatar-section button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.popupProfile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.show-popup {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }/*# sourceMappingURL=main.css.map */

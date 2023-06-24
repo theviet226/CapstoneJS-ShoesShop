@@ -25,12 +25,25 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 col-12"></div>
                 <div class="col-lg-3">
-                    <div class="header-top-wrapper mx-auto">
+                    <div class="header-top-wrapper mx-auto d-flex">
+                        <div class="header-top-socical mr-4">
+                            <a class="mr-3" href="https://www.facebook.com/ku.king.372/"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a class="mr-3" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a class="mr-3" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
                         <div class="header-top-content d-flex justify-content-end">
-                            <a href="/view/signIn.html" class="login text-white">
-                                <i class="fa-solid fa-user"></i>
-                                <span>SIGN IN</span>
-                            </a>
+                            <div class="user-profile">
+                                <a href="/view/signIn.html" class="login text-white">
+                                    <i class="fa-solid fa-user"></i>
+                                    <span id="loggedInUserName">Sign In</span>
+                                </a>
+                                <div class="popup" id="logoutPopup">
+                                    <a href="/view/profile.html">Profile</a>
+                                    <a href="#" onclick="signOutUser()">Logout</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="currency-wrapper">
                         </div>
@@ -93,7 +106,7 @@
                                 <button class="cart-btn bg-transparent" onclick=""><i
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
-                                    <span class="cart-item-count"></span>
+                                    <span class="cart-item-count">0</span>
                                     <div class="cart-items-container" id="cart-items-container"></div>
                                 </div>
                             </a>
@@ -124,8 +137,9 @@
     </header>
     <nav id="breadcrumbs" class="breadcrumbs">
         <div class="container page-wrapper AllBreadcrumbs">
-          <a href="http://127.0.0.1:5500" rel="nofollow">Home</a>&nbsp;&nbsp;»&nbsp;&nbsp;Cart</div>
-      </nav>
+            <a href="http://127.0.0.1:5500" rel="nofollow">Home</a>&nbsp;&nbsp;»&nbsp;&nbsp;Cart
+        </div>
+    </nav>
     <section class="cart-page mt-100">
         <div class="container">
             <div class="cart-page-wrapper">
@@ -367,17 +381,17 @@
             <button id="close-chat-btn">Đóng</button>
         </div>
         <div id="chat-content">
-            
+
             <div id="user-options">
-              <button class="option-btn">Có sản phẩm mới không?</button>
-              <button class="option-btn">Làm thế nào để đặt hàng?</button>
-              <button class="option-btn">Bao lâu để nhận được đơn hàng?</button>
-              <button class="option-btn">Có hỗ trợ đổi trả sản phẩm không?</button>
-              <button class="option-btn">Làm thế nào để liên hệ với chúng tôi?</button>
+                <button class="option-btn">Có sản phẩm mới không?</button>
+                <button class="option-btn">Làm thế nào để đặt hàng?</button>
+                <button class="option-btn">Bao lâu để nhận được đơn hàng?</button>
+                <button class="option-btn">Có hỗ trợ đổi trả sản phẩm không?</button>
+                <button class="option-btn">Làm thế nào để liên hệ với chúng tôi?</button>
             </div>
             <div id="chat-messages"></div>
             <input type="text" id="user-input" placeholder="Nhập tin nhắn...">
-          </div>
+        </div>
     </div>
 
 
@@ -391,7 +405,8 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.4.0/dist/axios.min.js"></script>
     <script src="/controller/main.js"></script>
-    <!-- <script src="/controller/card.js"></script> -->
+    <script src="/controller/SignInUsers.js"></script>
+    <script src="/controller/card.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -404,54 +419,7 @@
             });
         });
     </script>
-    <script>
-        // Lấy phần tử nút "Proceed to checkout"
-        var proceedBtn = document.querySelector('.btn-1');
 
-        // Lấy phần tử popup
-        var popup = document.getElementById('checkoutPopup');
-
-        // Khi click vào nút "Proceed to checkout"
-        proceedBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            // Thêm class 'show' vào popup để hiển thị nó
-            popup.classList.add('show');
-        });
-
-    </script>
-    <script>
-        var proceedBtn = document.querySelector('.btn-1');
-        var popup = document.getElementById('checkoutPopup');
-        var form = document.getElementById('checkoutForm');
-        var subTotal = calSubTotal(cart) + calculateShippingFee(cart);
-        document.getElementById('total-pay').innerHTML = '$'+ subTotal;
-
-        proceedBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            popup.classList.add('show');
-        });
-
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            // Lấy thông tin từ các input
-            var name = document.getElementById('name').value;
-            var phone = document.getElementById('phone').value;
-            var address = document.getElementById('address').value;
-
-            // Xử lý thông tin thanh toán tại đây
-            cart = []; // Xoá toàn bộ sản phẩm trong giỏ hàng bằng cách gán giá trị mới là một mảng rỗng
-            localStorage.removeItem('cart'); // Xoá dữ liệu giỏ hàng trong localStorage
-            updateCart(); // Cập nhật lại giao diện giỏ hàng để hiển thị giỏ hàng trống
-            updateSubTotal();
-
-            // Đóng popup sau khi xử lý
-            popup.classList.remove('show');
-
-        });
-
-    </script>
 
 
 </body>

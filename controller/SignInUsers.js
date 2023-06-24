@@ -1,94 +1,117 @@
 function signInUser() {
-    let email = document.querySelector("#signInEmail").value;
-    let password = document.querySelector("#signInPass").value;
+  let email = document.querySelector("#signInEmail").value;
+  let password = document.querySelector("#signInPass").value;
 
-    console.log(email, password);
+  console.log(email, password);
 
-    const usersSignIn = new SignInUsers(email, password);
+  const usersSignIn = new SignInUsers(email, password);
 
-    axios({
-        method: 'post',
-        url: 'https://shop.cyberlearn.vn/api/Users/signin',
-        data: usersSignIn,
-    }).then(function (result) {
+  axios({
+    method: 'post',
+    url: 'https://shop.cyberlearn.vn/api/Users/signin',
+    data: usersSignIn,
+  }).then(function () {
 
-        alert('Đăng nhập thành công');
-        console.log(result.data)
 
-        // Lấy thông tin người dùng từ localStorage
-        let nameUser = localStorage.getItem('name');
+
+    let userStorage = localStorage.getItem('userStorage');
+    if (userStorage) {
+      userStorage = JSON.parse(userStorage);
+      let userList = userStorage.userList;
+      let matchedUser = userList.find(user => user.email === email && user.password === password);
+      if (matchedUser) {
+        let nameList = userStorage.nameList;
+        let nameUser = nameList[userList.indexOf(matchedUser)];
         console.log(nameUser);
-        // let loggedInUserName = window.opener.document.querySelector("#loggedInUserName");
-        // loggedInUserName.innerHTML = nameUser;
-        // let accessToken = result.data.content.accessToken;
 
-        // // Lưu trữ thông tin AccessToken vào Local Storage
-        // localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('loggedInUser', JSON.stringify(matchedUser));
 
-        // // Gọi API để lấy thông tin người dùng từ AccessToken
-        // getProfile(accessToken);
-
-
-
-        //Chuyển hướng tới trang chủ
-        let homeURL = '/index.html?name=' + encodeURIComponent(nameUser);
-        window.location.href = homeURL;
-    }).catch(function (error) {
-        console.log(error);
-        alert('Sai tên đăng nhập/mật khẩu');
-    });
-}
-function getProfile(Token) {
-    axios({
-      method: 'get',
-      url: 'https://shop.cyberlearn.vn/api/Users/getProfile',
-      headers: {
-        Authorization: 'Bearer ' + Token
+        window.location.href = '/index.html';
+        let userIcon = document.querySelector(".fa-user");
+        userIcon.classList.remove("fa-user");
+        userIcon.classList.add("avatar-icon");
       }
-    }).then(function (result) {
-      console.log(result.data);
-  
-    //   let nameUser = localStorage.getItem('name');
-  
-    //   // Lưu trữ thông tin người dùng vào Local Storage
-    //   localStorage.setItem('name', nameUser);
-  
-      // Chuyển hướng tới trang khác
-    //   window.location.href = '/index.html';
-    }).catch(function (error) {
-      console.log(error);
-      alert('Lỗi khi lấy thông tin người dùng');
-    });
+      else {
+        alert('Sai tên đăng nhập/mật khẩu');
+      }
+    } else {
+      alert('Sai tên đăng nhập/mật khẩu');
+    }
+  }).catch(function (error) {
+    console.log(error);
+    alert('Sai tên đăng nhập/mật khẩu');
+  });
+}
+
+function checkLoggedIn() {
+
+  let loggedInUser = localStorage.getItem('loggedInUser');
+
+  if (loggedInUser) {
+
+    let user = JSON.parse(loggedInUser);
+    let nameUser = user.name;
+    let profileImage = user.profileImage;
+    let loggedInUserName = document.querySelector("#loggedInUserName");
+    loggedInUserName.innerHTML = nameUser;
+
+    if (profileImage) {
+      let avatarIcon = document.querySelector(".fa-user");
+      avatarIcon.style.display = "none";
+
+      let avatarImg = document.createElement("img");
+      avatarImg.classList.add("avatar-icon");
+      avatarImg.src = profileImage; 
+
+      let loginLink = document.querySelector(".login");
+      loginLink.insertBefore(avatarImg, loggedInUserName);
+    } else {
+      loggedInUserName.innerHTML = "Sign In";
+    }
+
+  } 
+}
+checkLoggedIn();
+
+document.addEventListener('DOMContentLoaded', function () {
+  let loggedInUserName = document.querySelector("#loggedInUserName");
+  let loggedInUser = localStorage.getItem('loggedInUser');
+  if (loggedInUser) {
+    loggedInUser = JSON.parse(loggedInUser);
+    let nameUser = loggedInUser.name;
+    loggedInUserName.innerHTML = nameUser;
+
+  }
+});
+
+function signOutUser() {
+  localStorage.removeItem('loggedInUser');
+  window.location.href = '/index.html';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const userLoggedIn = localStorage.getItem('loggedInUser');
+  const popupElement = document.getElementById('logoutPopup');
+
+  if (!userLoggedIn) {
+    popupElement.style.display = 'none';
   }
 
+  document.querySelector('.user-profile').addEventListener('mouseenter', function () {
+    if (userLoggedIn) {
+      popupElement.style.display = 'block';
+    }
+  });
+
+  document.querySelector('.user-profile').addEventListener('mouseleave', function () {
+    if (userLoggedIn) {
+      popupElement.style.display = 'none';
+    }
+  });
+});
 
 
-// function getUserName() {
-//     return localStorage.getItem('name')
-// }
 
 
 
-        // axios({
-        //     method: 'post',
-        //     url: 'https://shop.cyberlearn.vn/api/Users/getProfile',
-        //     headers: {
-        //         Authorization: `Bearer ${res.data.content.accessToken}`,
-        //     },
-        // }).then(function (response) {
-        //     console.log(response, "response");
-        //     document.getElementById("loginLink").innerHTML = `
-        //         <i class="fa-solid fa-user"></i>
-        //         span>${userName}</span>
-        //         `;
 
-        // }).catch(function (error) {
-        //     console.log(error);
-        // }),
-
-            //     const userName = result.data.name;
-            //     document.getElementById("loginLink").innerHTML = `
-            //   <i class="fa-solid fa-user"></i>
-            //   <span>${userName}</span>
-            // `;
-            // localStorage.setItem('name', userName)

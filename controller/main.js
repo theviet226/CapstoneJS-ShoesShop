@@ -58,7 +58,7 @@ function renderPorudct(data) {
                           <button><a class="text-product" href="http://127.0.0.1:5500/view/detail.html?id=${product.id}"> Xem sản phẩm</a></button>
                           </div>
                           <div class="col-lg-4 col1">
-                              <button onclick="addToCart(event)"><i class="fa-solid fa-cart-plus"></i></button>
+                              <button id="btnAddToCart" onclick="addToCart(event)"><i class="fa-solid fa-cart-plus"></i></button>
                           </div>
                       </div>
                   </div>
@@ -187,11 +187,9 @@ document.getElementsByClassName('search-form')[0].addEventListener('submit', fun
 });
 
 
-
-
-
 var cart = [];
 var cartItemId = 1;
+
 function generateItemId() {
   var maxId = 0;
   cart.forEach(function (item) {
@@ -201,8 +199,19 @@ function generateItemId() {
   });
   return maxId + 1;
 }
+
 function addToCart(event) {
   event.preventDefault();
+
+  // Kiểm tra trạng thái đăng nhập
+  var userLoggedIn = localStorage.getItem('loggedInUser');
+  if (!userLoggedIn) {
+    // Người dùng chưa đăng nhập, không cho phép thêm sản phẩm vào giỏ hàng
+    alert('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.');
+    window.location.href = '/view/signIn.html';
+    return;
+  }
+
   var productName = event.target.closest('.product-item').querySelector('.card-title').innerText;
   var productPrice = parseFloat(event.target.closest('.product-item').querySelector('.text-muted').innerText.replace('$', ''));
   var productImage = event.target.closest('.product-item').querySelector('.product-item-img img').src;
@@ -221,6 +230,7 @@ function addToCart(event) {
 
   updateCart();
 }
+
 
 
 
@@ -269,9 +279,17 @@ function updateCart() {
   } else {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
-  renderCart(cart);
 
+  var loggedInUser = localStorage.getItem('loggedInUser');
+  if (!loggedInUser) {
+    // Người dùng chưa đăng nhập, xoá toàn bộ giỏ hàng
+    cart = [];
+    localStorage.removeItem('cart');
+  }
+
+  renderCart(cart);
 }
+
 
 
 function renderCart(cart) {
@@ -391,14 +409,6 @@ function sortProducts() {
 }
 
 // Danh sách các câu hỏi mặc định và phản hồi tương ứng
-var questions = {
-  "Xin chào": "Xin chào! Chào mừng bạn đến với cửa hàng của chúng tôi. Bạn cần hỗ trợ gì?",
-  "Có sản phẩm mới không?": "Chúng tôi luôn cập nhật sản phẩm mới. Bạn có thể xem danh sách sản phẩm mới nhất trên trang web của chúng tôi.",
-  "Làm thế nào để đặt hàng?": "Để đặt hàng, bạn có thể truy cập trang web của chúng tôi và chọn sản phẩm bạn muốn mua. Sau đó, điền thông tin giao hàng và thanh toán để hoàn tất đơn hàng.",
-  "Bao lâu để nhận được đơn hàng?": "Thời gian giao hàng phụ thuộc vào địa chỉ của bạn và phương thức vận chuyển bạn chọn. Thông thường, đơn hàng sẽ được giao trong khoảng từ 3-7 ngày làm việc.",
-  "Có hỗ trợ đổi trả sản phẩm không?": "Chúng tôi hỗ trợ đổi trả sản phẩm trong vòng 30 ngày kể từ ngày nhận hàng. Bạn có thể đọc chính sách đổi trả trên trang web của chúng tôi để biết thêm chi tiết.",
-  "Làm thế nào để liên hệ với chúng tôi?": "Bạn có thể liên hệ với chúng tôi qua số điện thoại XXX-XXXX hoặc gửi email tới địa chỉ email của chúng tôi. Chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất."
-};
 
 // Lấy các phần tử từ DOM
 var openChatBtn = document.getElementById("open-chat-btn");
@@ -407,27 +417,21 @@ var chatPopup = document.getElementById("chat-popup");
 var chatMessages = document.getElementById("chat-messages");
 var userInput = document.getElementById("user-input");
 
-// Biến lưu trữ trạng thái của chatbox
 var chatboxOpen = false;
 
-// Mở chatbox
+
 function openChatbox() {
   chatPopup.style.display = "block";
   openChatBtn.style.display = "none";
   chatboxOpen = true;
 }
 
-// Đóng chatbox
 function closeChatbox() {
   chatPopup.style.display = "none";
   openChatBtn.style.display = "block";
   chatboxOpen = false;
 }
 
-// Xử lý câu hỏi từ người dùng và trả lời từ bot
-// Đoạn JavaScript trước giống với ví dụ trước
-
-// Biến lưu trữ các câu hỏi và phản hồi tương ứng
 var options = [
   {
     question: "Có sản phẩm mới không?",
@@ -451,13 +455,13 @@ var options = [
   }
 ];
 
-// Xử lý sự kiện khi người dùng chọn câu hỏi từ các tùy chọn
+
 function processOptionClick(event) {
   var selectedOption = event.target.innerHTML;
   appendMessage("Bạn", selectedOption);
 
   // Tìm câu hỏi tương ứng trong danh sách
-  var matchedOption = options.find(function(option) {
+  var matchedOption = options.find(function (option) {
     return option.question === selectedOption;
   });
 
@@ -466,7 +470,7 @@ function processOptionClick(event) {
     var answer = matchedOption.answer;
     appendMessage("Bot", answer);
   }
-  
+
 }
 
 // Gắn sự kiện click cho các tùy chọn

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/asset/img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./asset/img/icon.png" type="image/x-icon">
     <title>Shoes Shop</title>
     <link rel="stylesheet" href="/asset/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +25,7 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 col-12"></div>
                 <div class="col-lg-3">
+
                     <div class="header-top-wrapper mx-auto d-flex">
                         <div class="header-top-socical mr-4">
                             <a class="mr-3" href="https://www.facebook.com/ku.king.372/"><i
@@ -34,12 +35,16 @@
                             <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                         <div class="header-top-content d-flex justify-content-end">
-                            <a href="/view/signIn.html" class="login text-white">
-                                <i class="fa-solid fa-user"></i>
-                                <span>SIGN IN</span>
-                            </a>
-                        </div>
-                        <div class="currency-wrapper">
+                            <div class="user-profile">
+                                <a href="/view/signIn.html" class="login text-white">
+                                    <i id="user" class="fa-solid fa-user"></i>
+                                    <span id="loggedInUserName">Sign In</span>
+                                </a>
+                                <div class="popup" id="logoutPopup">
+                                    <a href="/view/profile.html">Profile</a>
+                                    <a href="#" onclick="signOutUser()">Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,7 +88,7 @@
                                 </li>
                                 <li class="menu-list">
                                     <div class="menu-header">
-                                        <a href="" class="nav-link">
+                                        <a href="/view/contact.html" class="nav-link">
                                             Contact
                                         </a>
                                     </div>
@@ -96,11 +101,12 @@
                             <a class="header-action-item" id="search-icon" href="">
                                 <i class="icon fa-solid fa-magnifying-glass"></i>
                             </a>
-                            <a class="header-action-item" href="/view/cart.html">
+                            <a class="header-action-item" href="./view/cart.html">
                                 <button class="cart-btn bg-transparent" onclick=""><i
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
                                     <span class="cart-item-count"></span>
+
                                 </div>
                             </a>
                             <a class="header-action-item" href="">
@@ -114,11 +120,11 @@
             <div class="search-wrapper">
                 <div class="container">
                     <form action="" class=" search-form d-flex align-items-center">
-                        <button onclick="" type="submit" class="search-submit bg-transparent pl-0 text-start">
+                        <button type="submit" class="search-submit bg-transparent pl-0 text-start">
                             <i class="icon fa-solid fa-magnifying-glass"></i>
                         </button>
                         <div class="search-ipunt mr-4">
-                            <input type="text" id="searchKeyword" name="seacrh" placeholder="Search your products...">
+                            <input type="text" name="seacrh" placeholder="Search your products...">
                         </div>
                         <div class="search-close">
                             <i class="icon fa-solid fa-xmark"></i>
@@ -128,87 +134,65 @@
             </div>
         </div>
     </header>
-    <nav id="breadcrumbs" class="breadcrumbs">
-        <div class="container page-wrapper AllBreadcrumbs">
-            <a href="http://127.0.0.1:5500/index.html" rel="nofollow">Home</a>&nbsp;&nbsp;»&nbsp;&nbsp;Contact
-        </div>
-    </nav>
+    <div class="main">
+        <div class="container">
+            <h1>User Profile</h1>
 
-    <section class="contact spad">
-        <div class="container">
-            <h2 class="text-center mb-5">Get in touch with us</h2>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_phone"><i class="fa-solid fa-phone"></i></span>
-                        <h4>Phone</h4>
-                        <p>+12-345-6789</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_pin_alt"><i class="fa-solid fa-location-dot"></i></span>
-                        <h4>Address</h4>
-                        <p>254 Nguyen Van Linh Da Nang</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_clock_alt"> <i class="fa-regular fa-clock"></i></span>
-                        <h4>Open time</h4>
-                        <p>8:00 am to 20:00 pm</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_mail_alt"><i class="fa-regular fa-envelope"></i></span>
-                        <h4>Email</h4>
-                        <p>maitheviet@gmail.com</p>
-                    </div>
-                </div>
+            <div class="profile-section">
+                <label>Gmail:</label>
+                <p id="profileEmail"></p>
             </div>
-        </div>
-    </section>
-    <div class="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.4553364179105!2d108.21116347611563!3d16.0418443401685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142193783c2b383%3A0xfc0da842097725c7!2zVHJ1bmcgVMOibSDEkMOgbyBU4bqhbyBM4bqtcCBUcsOsbmggQ3liZXJTb2Z0IC0gQ8ahIFPhu58gxJDDoCBO4bq1bmc!5e0!3m2!1svi!2s!4v1687445633710!5m2!1svi!2s"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="map-inside">
-            <i class="icon_pin"></i>
-            <div class="inside-widget">
-                <h4>Da Nang</h4>
-                <ul>
-                    <li>Phone: +12-345-6789</li>
-                    <li>Add: 103 Nguyễn Hữu Dật ,Hải Châu, Đà Nẵng</li>
-                </ul>
+
+            <div class="profile-section">
+                <label>Name:</label>
+                <p id="profileName"></p>
             </div>
-        </div>
-    </div>
-    <div class="contact-form spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="contact__form__title">
-                        <h2>We will Answer all your Questions</h2>
-                    </div>
-                </div>
+            <div class="profile-section">
+                <label>Gender:</label>
+                <p id="profileGender"></p>
             </div>
-            <form action="#">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Your name">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Your Email">
-                    </div>
-                    <div class="col-lg-12 text-center">
-                        <textarea placeholder="Your message"></textarea>
-                        <button type="submit" class="site-btn">SEND MESSAGE</button>
-                    </div>
-                </div>
-            </form>
+
+            <div class="profile-section">
+                <label>Phone Number:</label>
+                <p id="profilePhoneNumber"></p>
+            </div>
+
+            <div class="profile-section">
+                <label>Address:</label>
+                <p id="profileAddress"></p>
+            </div>
+
+            <div class="avatar-section">
+                <label>Avatar:</label>
+                <img id="profileAvatar" src="" alt="Avatar">
+                <input type="file" id="avatarFile" accept="image/*" onchange="handleAvatarChange(event)">
+                <button onclick="changeAvatar()">Change Avatar</button>
+            </div>
+            <button onclick="openProfileForm()">Edit Profile</button>
+
+
+
         </div>
+        <div class="popupProfile" id="profileForm">
+            <div class="popup-content">
+              <h2>Edit User Profile</h2>
+              <form>
+                <div class="form-group">
+                  <label for="editEmail">Email:</label>
+                  <input type="email" id="editEmail" required>
+                </div>
+                <div class="form-group">
+                  <label for="editName">Name:</label>
+                  <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                  <label for="editPhoneNumber">Phone number:</label>
+                  <input type="tel" id="editPhoneNumber" required>
+                </div>
+                <button type="submit" onclick="saveUserProfile()">Save Changes</button>
+              </form>
+            </div>
+          </div>
     </div>
 
     <footer class="mt-100 overflow-hidden">
@@ -285,7 +269,8 @@
                                         <form action="" class="footer-newsletter-form d-flex align-items-center">
                                             <input class="footer-newsletter-input bg-transparent" type="email"
                                                 placeholder="Your e-mail">
-                                            <button class="footer-newsletter-btn newsletter-btn-white">SIGN UP</button>
+                                            <button class="footer-newsletter-btn newsletter-btn-white"
+                                                href="/view/signUp.html">SIGN UP</button>
                                         </form>
                                     </div>
                                 </div>
@@ -346,6 +331,7 @@
         </div>
     </footer>
     <button id="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
+
     <div id="chat-popup">
         <div id="chat-header">
             <span id="chat-title">Chatbox</span>
@@ -375,6 +361,14 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.4.0/dist/axios.min.js"></script>
+    <script src="/controller/SignInUsers.js"></script>
+    <script src="/controller/profile.js"></script>
+
+
+
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var searchIcon = document.getElementById('search-icon');
@@ -386,9 +380,7 @@
             });
         });
     </script>
-    <script>
 
-    </script>
 
 </body>
 

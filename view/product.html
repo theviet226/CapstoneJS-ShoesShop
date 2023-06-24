@@ -27,17 +27,23 @@
                 <div class="col-lg-3">
                     <div class="header-top-wrapper mx-auto d-flex">
                         <div class="header-top-socical mr-4">
-                            <a class="mr-3" href="https://www.facebook.com/Trumforestt"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a class="mr-3" href="https://www.facebook.com/ku.king.372/"><i class="fa-brands fa-facebook-f"></i></a>
                             <a class="mr-3" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
                             <a class="mr-3" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                             <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                         <div class="header-top-content d-flex justify-content-end">
-                            <a href="/view/signIn.html" class="login text-white">
+                            <div class="user-profile">
+                              <a href="/view/signIn.html" class="login text-white">
                                 <i class="fa-solid fa-user"></i>
-                                <span>SIGN IN</span>
-                            </a>
-                        </div>
+                                <span id="loggedInUserName">Sign In</span>
+                              </a>
+                              <div class="popup" id="logoutPopup">
+                                <a href="/view/profile.html">Profile</a>
+                                <a href="#" onclick="signOutUser()">Logout</a>
+                              </div>
+                            </div>
+                          </div>
                         <div class="currency-wrapper">
                         </div>
                     </div>
@@ -503,13 +509,11 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.4.0/dist/axios.min.js"></script>
-    <script src="/controller/cartsidebar.js"></script>
-    <script src="/controller/slider.js"></script>
     <script src="/model/Shoes.js"></script>
     <script src="/model/CartItem.js"></script>
-    <!-- <script src="/controller/card.js"></script> -->
-    
+    <script src="/controller/SignInUsers.js"></script>
     <script  src="/controller/main.js"></script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -522,9 +526,7 @@
             });
         });
     </script>
-    <script>
-        
-    </script>
+
 
 </body>
 

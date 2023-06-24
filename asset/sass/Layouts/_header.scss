@@ -230,3 +230,44 @@ nav#breadcrumbs a:hover {
     color: #fff;
     margin-right: 20px;
 }
+
+.user-profile {
+    position: relative;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 160px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.user-profile:hover .popup {
+    display: block;
+}
+
+.popup a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup a:hover {
+    background-color: #ebebeb;
+}
+.avatar-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    object-fit: cover;
+    margin-right: 5px;
+  }
