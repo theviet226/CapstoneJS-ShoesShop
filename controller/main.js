@@ -55,7 +55,7 @@ function renderPorudct(data) {
                   <div class="product-item-options">  
                       <div class="product-item-options-button row">
                           <div class="col-lg-8 col1">
-                          <button><a class="text-product" href="http://127.0.0.1:5500/view/detail.html?id=${product.id}"> Xem sản phẩm</a></button>
+                          <button><a class="text-product" href="./detail.html?id=${product.id}"> Xem sản phẩm</a></button>
                           </div>
                           <div class="col-lg-4 col1">
                               <button id="btnAddToCart" onclick="addToCart(event)"><i class="fa-solid fa-cart-plus"></i></button>
@@ -97,20 +97,20 @@ function handleCheckboxClick() {
     }
   });
 
-  console.log('selectedCategoryIds:', selectedCategoryIds);
+ 
 
   var filteredProducts = [];
   if (selectedCategoryIds.length > 0) {
     filteredProducts = productList.filter(function (product) {
 
       const categories = JSON.parse(product.categories)[0].id;
-      console.log(categories)
+    
       return selectedCategoryIds.includes(categories);
     });
   } else {
     filteredProducts = productList;
   }
-  console.log("Danh sach san pham", filteredProducts)
+ 
 
   renderPorudct(filteredProducts);
 }

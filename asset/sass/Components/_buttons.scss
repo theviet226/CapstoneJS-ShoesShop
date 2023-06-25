@@ -19,3 +19,17 @@
 	background: coral;
 	border: none;
 }
+.btn-product{
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    flex-direction: column;
+    max-height: 600px;
+    max-width: 280px;
+}
+.btn-view-product{
+	font-size: 20px;
+	background-color: coral;
+	color: #fff;
+}

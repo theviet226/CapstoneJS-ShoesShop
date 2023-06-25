@@ -8,17 +8,17 @@
     width: 60%;
     margin-bottom: 50px;
 }
-.detail-product .detail-product-left .detail-product-left-top {
+.detail-product  .detail-product-left-top {
     width: 100%;
 }
-.detail-product .detail-product-left .detail-product-left-top .detail-product-left-top-item {
+.detail-product .detail-product-left-top-item {
     margin-bottom: 16px;
     cursor: pointer;
 }
-.detail-product .detail-product-left .detail-product-left-bottom {
+.detail-product  .detail-product-left-bottom {
     width: 100%;
 }
-.detail-product .detail-product-left .detail-product-left-bottom .detail-product-left-bottom-item {
+.detail-product  .detail-product-left-bottom .detail-product-left-bottom-item {
     margin-bottom: 16px;
     cursor: pointer;
 }
@@ -26,16 +26,16 @@
     width: 40%;
     margin-left: 10px;
 }
-.detail-product .detail-product-right .detail-product-right-wrap {
+.detail-product  .detail-product-right-wrap {
     width: 100%;
 }
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top {
+.detail-product   .detail-product-right-top {
     width: 100%;
 }
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description {
+.detail-product  .detail-product-right-top-description {
     width: 100%;
 }
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description .detail-product-right-top-description-new {
+.detail-product  .detail-product-right-top-description-new {
     width: 100%;
     margin-bottom: 10px;
 }
@@ -47,7 +47,7 @@
     font-size: 12px;
     user-select: none;
 }
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description h2 {
+.detail-product  .detail-product-right-top-description h2 {
     margin-bottom: 8px;
     font-size: 24px;
 }
@@ -168,7 +168,7 @@
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-btn button {
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #888;
+    background-color: coral;
     text-transform: uppercase;
     color: #fff;
     outline: none;
@@ -366,9 +366,9 @@
     transition: all 0.3s ease;
   }
   
-  .size-button.active {
-    background-color: #8B5CF6;
-    border-color: #8B5CF6;
-    color: #FFFFFF;
+
+  .size-button.clicked {
+    background-color: coral; /* Màu nền muốn thay đổi khi button được click */
+    color: #ffffff; /* Màu chữ muốn thay đổi khi button được click */
   }
   

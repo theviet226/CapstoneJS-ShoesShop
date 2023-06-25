@@ -90,6 +90,14 @@ html, body {
   letter-spacing: 0.4px;
 }
 
+.text-slider {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.68;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
 .bg-1 {
   background-color: #00234D;
 }
@@ -159,6 +167,22 @@ a:hover {
   padding: 13px 30px 12px;
   background: coral;
   border: none;
+}
+
+.btn-product {
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  flex-direction: column;
+  max-height: 600px;
+  max-width: 280px;
+}
+
+.btn-view-product {
+  font-size: 20px;
+  background-color: coral;
+  color: #fff;
 }
 
 .sticky-header {
@@ -694,6 +718,118 @@ nav#breadcrumbs a:hover {
 
 .services-content {
   padding-left: 24px;
+}
+
+.product-hot {
+  background-color: #071C1F;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.producthot-content {
+  width: 75%;
+  margin: auto;
+  letter-spacing: 1px;
+}
+
+.product-slider {
+  margin-top: 20px;
+}
+
+.slick-dots li button:before {
+  color: white;
+  font-size: 12px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #e62b4a;
+}
+
+.titleservice h2 {
+  color: white;
+}
+
+.title p:last-of-type {
+  font-size: 25px;
+  color: #888888;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.btn-product:hover .text-btn-product {
+  color: coral;
+}
+
+.text-slider:hover .text-product {
+  color: coral;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+
+.popup-announcement {
+  height: 420px;
+  width: 680px;
+  background-image: url(https://partner-images.bluecore.com/nike_india/SU23_XCAT_NewArrivals_COM_BluecoreBanner_Desktop_ENG.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.popup-announcement-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+}
+
+.popup-announcement-close:hover {
+  color: #555;
+}
+
+.shop-now-button {
+  position: absolute;
+  top: 250px;
+  right: 450px;
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 13px 30px 12px;
+  background: coral;
+  border-radius: 30px;
+  border: none;
+}
+
+.text-announcement {
+  position: absolute;
+  margin: 0 0 0 0;
+  top: 29.72%;
+  left: 7.72%;
+  right: auto;
+  bottom: auto;
+  transform: none;
+  z-index: 3;
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
 }
 
 .footer-top {
@@ -1418,20 +1554,20 @@ img {
   margin-bottom: 50px;
 }
 
-.detail-product .detail-product-left .detail-product-left-top {
+.detail-product .detail-product-left-top {
   width: 100%;
 }
 
-.detail-product .detail-product-left .detail-product-left-top .detail-product-left-top-item {
+.detail-product .detail-product-left-top-item {
   margin-bottom: 16px;
   cursor: pointer;
 }
 
-.detail-product .detail-product-left .detail-product-left-bottom {
+.detail-product .detail-product-left-bottom {
   width: 100%;
 }
 
-.detail-product .detail-product-left .detail-product-left-bottom .detail-product-left-bottom-item {
+.detail-product .detail-product-left-bottom .detail-product-left-bottom-item {
   margin-bottom: 16px;
   cursor: pointer;
 }
@@ -1441,19 +1577,19 @@ img {
   margin-left: 10px;
 }
 
-.detail-product .detail-product-right .detail-product-right-wrap {
+.detail-product .detail-product-right-wrap {
   width: 100%;
 }
 
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top {
+.detail-product .detail-product-right-top {
   width: 100%;
 }
 
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description {
+.detail-product .detail-product-right-top-description {
   width: 100%;
 }
 
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description .detail-product-right-top-description-new {
+.detail-product .detail-product-right-top-description-new {
   width: 100%;
   margin-bottom: 10px;
 }
@@ -1469,7 +1605,7 @@ img {
           user-select: none;
 }
 
-.detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-description h2 {
+.detail-product .detail-product-right-top-description h2 {
   margin-bottom: 8px;
   font-size: 24px;
 }
@@ -1600,7 +1736,7 @@ img {
 .detail-product .detail-product-right .detail-product-right-wrap .detail-product-right-top .detail-product-right-top-btn button {
   margin-bottom: 10px;
   padding: 10px;
-  background-color: #888;
+  background-color: coral;
   text-transform: uppercase;
   color: #fff;
   outline: none;
@@ -1829,10 +1965,9 @@ img {
   transition: all 0.3s ease;
 }
 
-.size-button.active {
-  background-color: #8B5CF6;
-  border-color: #8B5CF6;
-  color: #FFFFFF;
+.size-button.clicked {
+  background-color: coral; /* Màu nền muốn thay đổi khi button được click */
+  color: #ffffff; /* Màu chữ muốn thay đổi khi button được click */
 }
 
 .contact {

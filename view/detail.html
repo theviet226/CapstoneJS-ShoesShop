@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./asset/img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/asset/img/icon.png" type="image/x-icon">
     <title>Shoes Shop</title>
     <link rel="stylesheet" href="/asset/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,16 +27,24 @@
                 <div class="col-lg-3">
                     <div class="header-top-wrapper mx-auto d-flex">
                         <div class="header-top-socical mr-4">
-                            <a class="mr-3" href="https://www.facebook.com/ku.king.372/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a class="mr-3" href="https://www.facebook.com/ku.king.372/"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
                             <a class="mr-3" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
                             <a class="mr-3" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                             <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
-                        </div> 
+                        </div>
                         <div class="header-top-content d-flex justify-content-end">
-                            <a href="/view/signIn.html" class="login text-white">
-                                <i class="fa-solid fa-user"></i>
-                                <span>SIGN IN</span>
-                            </a>
+                            <div class="user-profile">
+                                <a href="/view/signIn.html" class="login text-white">
+                                    <i id="user" class="fa-solid fa-user"></i>
+                                    <span id="loggedInUserName">Sign In</span>
+                                </a>
+                                <div class="popup" id="logoutPopup">
+                                    <a href="/view/profile.html">Profile</a>
+                                    <a href="">My Order</a>
+                                    <a href="#" onclick="signOutUser()">Logout</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="currency-wrapper">
                         </div>
@@ -99,7 +107,7 @@
                                 <button class="cart-btn bg-transparent" onclick=""><i
                                         class="icon fas fa-shopping-cart"></i></button>
                                 <div class="cart-info" id="cart-info">
-                                    <span class="cart-item-count"></span>
+                                    <span class="cart-item-count">0</span>
                                     <div class="cart-items-container" id="cart-items-container"></div>
                                 </div>
                             </a>
@@ -150,23 +158,22 @@
                         <input type="hidden" name="id" value="">
                         <div class="detail-product-right-top-description-size">
                             <div class="detail-product-right-top-description-size-title">
-                                <span>Kích thước: </span>
+                              <span>Kích thước: </span>
                             </div>
                             <div class="size-buttons mb-3">
-                                <div class="size-buttons">
-                                    <button class="size-button" onclick="selectSize(36)"><span>36</span></button>
-                                    <button class="size-button" onclick="selectSize(37)"><span>37</span></button>
-                                    <button class="size-button" onclick="selectSize(38)"><span>38</span></button>
-                                    <button class="size-button" onclick="selectSize(39)"><span>39</span></button>
-                                    <button class="size-button" onclick="selectSize(40)"><span>40</span></button>
-                                    <button class="size-button" onclick="selectSize(41)"><span>41</span></button>
-                                    <button class="size-button" onclick="selectSize(42)"><span>42</span></button>
-                                </div>
-
+                              <div class="size-buttons">
+                                <button class="size-button" onclick="selectSize(this, 36)"><span>36</span></button>
+                                <button class="size-button" onclick="selectSize(this, 37)"><span>37</span></button>
+                                <button class="size-button" onclick="selectSize(this, 38)"><span>38</span></button>
+                                <button class="size-button" onclick="selectSize(this, 39)"><span>39</span></button>
+                                <button class="size-button" onclick="selectSize(this, 40)"><span>40</span></button>
+                                <button class="size-button" onclick="selectSize(this, 41)"><span>41</span></button>
+                                <button class="size-button" onclick="selectSize(this, 42)"><span>42</span></button>
+                              </div>
                             </div>
-                        </div>
+                          </div>
                         <div class="detail-product-right-top-btn">
-                            <button id="btnAddToCart" onclick="">Thêm vào giỏ hàng</button>
+                            <button id="btnAddToCart" onclick="addToCart()">Thêm vào giỏ hàng</button>
                             <button>Mua Hàng</button>
                         </div>
                     </div>
@@ -359,7 +366,15 @@
 
     <script src="/model/Shoes.js"></script>
     <script src="/model/CartItem.js"></script>
+
+    <script src="/controller/SignInUsers.js"></script>
+
+
     <script src="/controller/detail.js"></script>
+
+
+
+
     <!-- <script src="/controller/main.js"></script> -->
 
     <script>
@@ -374,15 +389,15 @@
         });
     </script>
     <script>
-        function selectSize(size) {
-            sizeButtons.forEach(button => {
-                if (button.textContent === size.toString()) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
-            });
+        function selectSize(button, size) {
+            var buttons = document.getElementsByClassName('size-button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('clicked');
+            }
+
+            button.classList.add('clicked');
         }
+
     </script>
     <script>
         const btnAddToCart = document.querySelector("#btnAddToCart");

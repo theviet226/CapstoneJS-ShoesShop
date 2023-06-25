@@ -34,10 +34,17 @@
                             <a class="mr-3" href="https://www.pinterest.com/"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                         <div class="header-top-content d-flex justify-content-end">
-                            <a href="/view/signIn.html" class="login text-white">
-                                <i class="fa-solid fa-user"></i>
-                                <span>SIGN IN</span>
-                            </a>
+                            <div class="user-profile">
+                                <a href="/view/signIn.html" class="login text-white">
+                                    <i id="user" class="fa-solid fa-user"></i>
+                                    <span id="loggedInUserName">Sign In</span>
+                                </a>
+                                <div class="popup" id="logoutPopup">
+                                    <a href="/view/profile.html">Profile</a>
+                                    <a href="">My Order</a>
+                                    <a href="#" onclick="signOutUser()">Logout</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="currency-wrapper">
                         </div>
@@ -375,6 +382,8 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.4.0/dist/axios.min.js"></script>
+    <script src="/controller/SignInUsers.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var searchIcon = document.getElementById('search-icon');

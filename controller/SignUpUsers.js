@@ -37,14 +37,17 @@ function signUpUser() {
     data: usersSignUp,
   }).then(function (result) {
     console.log(result.data.content);
+    
     alert('Đăng ký thành công');
     window.location.href = '/view/signIn.html';
+   
   
     // Lưu thông tin người dùng vào localStorage
-    localStorage.setItem('loggedInUser', JSON.stringify(usersSignUp));
+    // localStorage.setItem('loggedInUser', JSON.stringify(usersSignUp));
   
     console.log(userStorage);
   }).catch(function (error) {
+    alert('Đăng ký thất bại');
     console.log(error);
   });
   
